@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="sv">
+  
+  <head>
+    <link rel="stylesheet" type="text/css" href="projekt.css">
+    <script type="text/javascript" src="projekt.json"></script>
+    <script type="text/javascript" src="projekt.js"></script>
+     <script>
+      docLoaded(indexPageLoaded);
+    </script>
+    <section id= "huvud">
+    <title>Värmlandskällaren</title>
+    </section>
+  </head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+
+  
+  <body>
+    <section class="card">
+      <button id="card"> Card </button>
+    </section>
+    <section class="cash">
+      <button id="cash"> Cash </button>
+    </section>
+    <section class="Edit">
+      <button id="edit"> Edit </button>
+    </section>
+    <section class="Bill">
+      <table>
+	<tr id="kvittot">
+	  <h1 id="t01"> Receipt </h1>	  
+	</tr>
+	<tr id="texten"></tr>
+      </table>
+    </section>
+    <section class="addandsub">
+      <table>
+    <td>
+      <button class="addsub" id="plus"> + </button>
+	  </td>
+	  <td>
+	    <button class="addsub" id="minus"> - </button>
+	  </td>
+	</table>
+    </section>
+    <section class="numbers">
+      <table>
+	<tr id="r1">
+	  <td>
+	    <button class="n" id="1" onclick="numbers(id)"> 1 </button>
+	  </td>
+	  <td>
+	    <button class="n" id="2" onclick="numbers(id)"> 2 </button>
+	  </td>
+	  <td>
+	    <button class="n" id="3" onclick="numbers(id)"> 3 </button>
+	  </td>
+	</tr>
+	<tr id="r2">
+	  <td>
+	    <button class="n" id="4" onclick="numbers(id)"> 4 </button>
+	  </td>
+	  <td>
+	    <button class="n" id="5" onclick="numbers(id)"> 5 </button>
+	  </td>
+	  <td>
+	    <button class="n" id="6" onclick="numbers(id)"> 6 </button>
+	  </td>
+	</tr>
+	<tr id="r3">
+	  <td>
+	    <button class="n" id="7" onclick="numbers(id)"> 7 </button>
+	  </td>
+	  <td>
+	    <button class="n" id="8" onclick="numbers(id)"> 8 </button>
+	  </td>
+	  <td>
+	    <button class="n" id="9" onclick="numbers(id)"> 9 </button>
+	  </td>
+	</tr>
+	<tr id="r4">
+	  <td>
+	    <td>
+	      <button class="n" id="0" onclick="numbers(id)"> 0 </button>
+	      </td>
+	      <td>
+	    <button class="n" id="enter" onclick="addNumbers()"> Enter </button>
+	  </td>
+	  </td>
+	</tr>
+      </table>
+    </section>
+ <section class="Food">
+      <table>
+	<table>
+	  <tr id="t1"></tr>
+	  <td>
+	    <select id="hamburger" onchange="sendToKitchenHamburger()">
+	      <option> Hamburger </option>
+	      <option value="Cheese" id="cheeseburger"> Cheese </option>
+	      <option value="Cheese and bacon" id="cheese-bacon"> Cheese and bacon </option>
+	      <option value="Chevre honoung" id="chevre-honey"> Chevre honoung </option>
+	      <option value="Veggie" id="veggie"> Veggie </option>
+	    </select>
+	  </td>
+	  <td>
+	    <select id="beercider" onchange="sendToKitchenBeerCider()">
+	      <option> Beer/cider </option>
+	      <option value="Carlsberg" id="carlsberg"> Carlsberg </option>
+	      <option value="Heineken" id="heineken"> Heineken </option>
+	      <option value="Pear cider" id="pear-cider"> Pear cider </option>
+	      <option value="Apple cider" id="apple-cider"> Apple cider </option>
+	    </select>
+	  </td>
+	  <tr id="t2"> </tr>
+	  <td>
+	    <select id="salad" onchange="sendToKitchenSalad()">
+	      <option> Salad </option>
+	      <option value="Ceasar salad" id="cesar"> Ceasar salad </option>
+	      <option value="Meatball salad" id="meatball-salad"> Meatball salad </option>
+	      <option value="Egg salad" id="egg-salad"> Egg salad </option>
+	    </select>
+	  </td>
+	  <td>
+	    <select id="wine" onchange="sendToKitchenWine()">
+	      <option> Wine </option>
+	      <option value="White" id="white"> White </option>
+	      <option value="Rosé" id="rosé"> Rosé </option>
+	      <option value="Red" id="red"> Red </option>
+	    </select>
+	  </td>
+	  <tr id="t3"> </tr>
+	  <td>
+	    <select id="sideDish" onchange="sendToKitchenSideDish()">
+	      <option> Side dishes </option>
+	      <option value="Tacos" id="Tacos"> Tacos </option>
+	      <option value="French fries" id="Fries"> French fries </option>
+	      <option value="Nachos" id="Nachos"> Nachos </option>
+	      <option value="Mozzarella-sticks" id="Mozzarella-sticks"> Mozzarella-sticks </option>
+	    </select>
+	  </td>
+	  <td>
+	    <select id="softDrinks" onchange="sendToKitchenSoftDrinks()">
+	      <option> Soft drinks </option>
+	      <option value="Coca-cola" id="coca-cola"> Coca-cola </option>
+	      <option value="Fanta" id="fanta"> Fanta </option>
+	      <option value="Sprite" id="sprite"> Sprite </option>
+	      <option value="Sparkling water" id="sparkling-water"> Sparkling water </option>
+	      
+	    </select>
+	  </td>
+	  <tr id="t4"> </tr>
+	  <td>
+	    <select id="desserts" onchange="sendToKitchenDesserts()">
+	      <option> Desserts </option>
+	      <option value="Semla" id="semla"> Semla </option>
+	      <option value="Mudcake" id="mudcake"> Mudcake </option>
+	      <option value="Lemoncake" id="lemoncake"> Lemoncake </option>
+	    </select>
+	  </td>
+	  <td>	   
+	    <button id="send" onclick="sendtok()"> Send to kitchen   Done </button>
+	  </td>
+	</table>
+      </table>
+    </section>
+
+  </body>
+
+</html>

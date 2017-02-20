@@ -1,0 +1,143 @@
+var hamburger = [
+    {
+	"name": "cheeseburger",
+	"price": "50",
+	"ingredients": "gluten", "lactos", "cucumber", "tomatoes", "mustard", "onion",
+    },
+    {
+	"name": "veggie",
+	"price": "500",
+	"ingredients": "horse",
+    },
+
+    {
+	"name": "cheese-bacon",
+	"price": "5",
+	"ingredients": "therese's mom",
+    },
+
+    {
+	"name": "chevre-honey",
+	"price": "60",
+	"ingredients": "honey, chevre",
+    }
+]
+
+var beercider = [
+    {
+	"name": "carlsberg",
+	"price": "0",
+    },
+    {
+	"name": "heineken",
+	"price": "0",
+    },
+    {
+	"name": "pear-cider",
+	"price": "0",
+    },
+    {
+	"name": "apple-cider",
+	"price": "0",
+    },
+]
+
+var salad = [
+    {
+	"name": "cesar",
+	"price": "500",
+	"ingredients": "horse",
+    },
+    {
+	"name": "meatball-salad",
+	"price": "500",
+	"ingredients": "horse",
+    },
+    {
+	"name": "egg-salad",
+	"price": "500",
+	"ingredients": "horse",
+    },
+]
+
+var wine = [
+     {
+	"name": "white",
+	"price": "70", "40",
+	"size": "Bottle, Glas",
+     },
+     {
+	"name": "rosé",
+	"price": "70", "40",
+	"size": "Bottle, Glas",
+    }
+    {
+	"name": "red",
+	"price": "70", "40",
+	"size": "Bottle, Glas",
+    },
+]
+
+var sideDish = [
+    {
+	"name": "tacos",
+	"price": "50",
+	"ingredients": "gluten, lactos, cucumber, tomatoes, mustard, onion"
+    },
+    {
+	"name": "fries",
+	"price": "500",
+	"ingredients": "horse",
+    },
+
+    {
+	"name": "nachos",
+	"price": "5",
+	"ingredients": "therese's mom",
+    },
+
+    {
+	"name": "mozzarella-sticks",
+	"price": "60",
+	"ingredients": "honey, chevre",
+    }
+]
+
+var softDrinks = [
+    {
+	"name": "coca-cola",
+	"price": "0",
+    },
+    {
+	"name": "fanta",
+	"price": "0",
+    },
+    {
+	"name": "sprite",
+	"price": "0",
+    },
+    {
+	"name": "sparkling-water",
+	"price": "0",
+    },
+]
+
+var desserts = [
+    {
+	"name": "semla",
+	"price": "0",
+	"ingredients": "gluten",
+    },
+    {
+	"name": "mudcake",
+	"price": "500",
+	"ingredients": "horse",
+    },
+
+    {
+	"name": "lemoncake",
+	"price": "5",
+	"ingredients": "therese's mom",
+    }
+]
+
