@@ -119,7 +119,7 @@ function printAll(object, id) {
 //var numbros4 = 0;
 var receipt = [];
 function sendToKitchenHamburger(){
-    if(document.getElementById('hamburger').value=='Cheese'){
+    if(document.getElementById('hamburger').value=='Cheeseburger'){
 	var loli = document.getElementById("texten");
 	var h = document.createElement("BUTTON");              // Create a <h1> element
 //	document.body.appendChild(h);
@@ -168,7 +168,7 @@ function sendToKitchenHamburger(){
 	    
 	}
     }
-    if(document.getElementById('hamburger').value=='Chevre honoung'){
+    if(document.getElementById('hamburger').value=='Chevre and honey'){
 	var loli = document.getElementById("texten");
 	var h = document.createElement("BUTTON");
 //	document.body.appendChild(h);
@@ -278,21 +278,21 @@ function sendToKitchenSalad(){
 }
 
 function sendToKitchenWine(){
-    if(document.getElementById('wine').value=='White'){
+    if(document.getElementById('wine').value=='White wine'){
 	var loli = document.getElementById("texten");
 	var h = document.createElement("H1")              // Create a <h1> element
 	var t = document.createTextNode("White wine");
 	h.appendChild(t);
 	loli.appendChild(h); 
     }
-    if(document.getElementById('wine').value=='Rosé'){
+    if(document.getElementById('wine').value=='Rosé wine'){
 	var loli = document.getElementById("texten");
 	var h = document.createElement("H1")              // Create a <h1> element
 	var t = document.createTextNode("Rosé wine");
 	h.appendChild(t);
 	loli.appendChild(h); 
     }
-    if(document.getElementById('wine').value=='Red'){
+    if(document.getElementById('wine').value=='Red wine'){
 	var loli = document.getElementById("texten");
 	var h = document.createElement("H1")              // Create a <h1> element
 	var t = document.createTextNode("Red wine");
@@ -339,7 +339,7 @@ function sendToKitchenSideDish(){
 
 
 function sendToKitchenSoftDrinks(){
-    if(document.getElementById('softDrinks').value=='Coca-cola'){
+    if(document.getElementById('softDrinks').value=='Coca cola'){
 	var loli = document.getElementById("texten");
 	var h = document.createElement("H1")              // Create a <h1> element
 	var t = document.createTextNode("Coca-cola");

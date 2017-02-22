@@ -44,7 +44,7 @@ var beercider = [
 
 var salad = [
     {
-	"name": "Cesar salad",
+	"name": "Ceasar salad",
 	"price": "500",
 	"ingredients": ["horse"],
     },
