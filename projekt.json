@@ -1,143 +1,144 @@
 var hamburger = [
     {
-	"name": "cheeseburger",
+	"name": "Cheeseburger",
 	"price": "50",
-	"ingredients": "gluten", "lactos", "cucumber", "tomatoes", "mustard", "onion",
+	"ingredients": ["gluten", "lactos", "cucumber", "tomatoes", "mustard", "onion"]
     },
     {
-	"name": "veggie",
+	"name": "Veggie",
 	"price": "500",
-	"ingredients": "horse",
+	"ingredients": ["horse"],
     },
 
     {
-	"name": "cheese-bacon",
+	"name": "Cheese and bacon",
 	"price": "5",
-	"ingredients": "therese's mom",
+	"ingredients":["therese's mom"],
     },
 
     {
-	"name": "chevre-honey",
+	"name": "Chevre and honey",
 	"price": "60",
-	"ingredients": "honey, chevre",
+	"ingredients": ["honey", "chevre"],
     }
 ]
 
 var beercider = [
     {
-	"name": "carlsberg",
+	"name": "Carlsberg",
 	"price": "0",
     },
     {
-	"name": "heineken",
+	"name": "Heineken",
 	"price": "0",
     },
     {
-	"name": "pear-cider",
+	"name": "Pear cider",
 	"price": "0",
     },
     {
-	"name": "apple-cider",
+	"name": "Apple cider",
 	"price": "0",
     },
 ]
 
 var salad = [
     {
-	"name": "cesar",
+	"name": "Cesar salad",
 	"price": "500",
-	"ingredients": "horse",
+	"ingredients": ["horse"],
     },
     {
-	"name": "meatball-salad",
+	"name": "Meatball salad",
 	"price": "500",
-	"ingredients": "horse",
+	"ingredients": ["horse"],
     },
     {
-	"name": "egg-salad",
+	"name": "Egg salad",
 	"price": "500",
-	"ingredients": "horse",
-    },
+	"ingredients": ["horse"],
+    }
 ]
 
 var wine = [
      {
-	"name": "white",
-	"price": "70", "40",
-	"size": "Bottle, Glas",
+	"name": "White wine",
+	"price": "70",
+	"ingredients": ["Bottle", "Glas"],
      },
      {
-	"name": "rosé",
-	"price": "70", "40",
-	"size": "Bottle, Glas",
-    }
+	"name": "Rosé wine",
+	"price": "70",
+	"ingredients": ["Bottle", "Glas"],
+     },
     {
-	"name": "red",
-	"price": "70", "40",
-	"size": "Bottle, Glas",
-    },
+	"name": "Red wine",
+	"price": "70",
+	"ingredients": ["Bottle", "Glas"],
+    }
 ]
+
 
 var sideDish = [
     {
-	"name": "tacos",
+	"name": "Tacos",
 	"price": "50",
-	"ingredients": "gluten, lactos, cucumber, tomatoes, mustard, onion"
+	"ingredients": ["gluten", "lactos", "cucumber", "tomatoes", "mustard", "onion"],
     },
     {
-	"name": "fries",
+	"name": "French fries",
 	"price": "500",
-	"ingredients": "horse",
+	"ingredients": ["horse"],
     },
 
     {
-	"name": "nachos",
+	"name": "Nachos",
 	"price": "5",
-	"ingredients": "therese's mom",
+	"ingredients": ["therese's mom"],
     },
 
     {
-	"name": "mozzarella-sticks",
+	"name": "Mozzarella-sticks",
 	"price": "60",
-	"ingredients": "honey, chevre",
+	"ingredients": ["honey", "chevre"],
     }
 ]
 
 var softDrinks = [
     {
-	"name": "coca-cola",
+	"name": "Coca cola",
 	"price": "0",
     },
     {
-	"name": "fanta",
+	"name": "Fanta",
 	"price": "0",
     },
     {
-	"name": "sprite",
+	"name": "Sprite",
 	"price": "0",
     },
     {
-	"name": "sparkling-water",
+	"name": "Sparkling water",
 	"price": "0",
     },
 ]
 
 var desserts = [
     {
-	"name": "semla",
+	"name": "Semla",
 	"price": "0",
-	"ingredients": "gluten",
+	"ingredients": ["gluten"],
     },
     {
-	"name": "mudcake",
+	"name": "Mudcake",
 	"price": "500",
-	"ingredients": "horse",
+	"ingredients": ["horse"],
     },
 
     {
-	"name": "lemoncake",
+	"name": "Lemoncake",
 	"price": "5",
-	"ingredients": "therese's mom",
+	"ingredients": ["therese's mom"],
     }
 ]
 

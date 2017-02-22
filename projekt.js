@@ -7,10 +7,51 @@ function docLoaded(fn) {
 }
 
 function indexPageLoaded() {
+    loadItems(hamburger[0], "cheeseburger");
+    loadItems(hamburger[1], "veggie");
+    loadItems(hamburger[2], "cheese-bacon");
+    loadItems(hamburger[3], "chevre-honey");
+    loadItems(beercider[0], "carlsberg");
+    loadItems(beercider[1], "heineken");
+    loadItems(beercider[2], "pear-cider");
+    loadItems(beercider[3], "apple-cider");
+    loadItems(salad[0], "cesar");
+    loadItems(salad[1], "meatball");
+    loadItems(salad[2], "egg");
+    /*
+    loadItems(wine[0], "white");
+    loadItems(wine[1], "rose");
+    loadItems(wine[2], "red");
+    */
+    loadItems(sideDish[0], "tacos");
+    loadItems(sideDish[1], "fries");
+    loadItems(sideDish[2], "nachos");
+    loadItems(sideDish[3], "mozzarella-sticks");
+    loadItems(softDrinks[0], "coca-cola");
+    loadItems(softDrinks[1], "fanta");
+    loadItems(softDrinks[2], "sprite");
+    loadItems(softDrinks[3], "sparkling-water");
+    loadItems(desserts[0], "semla");
+    loadItems(desserts[1], "mudcake");
+    loadItems(desserts[2], "lemoncake");
 
 }
 
-var numbercomb = "";  
+var numbercomb = "";
+
+function item(name, price, ingredients) {
+    this.name = name;
+    this.price = price;
+    this.ingredients = ingredients;
+}
+
+function loadItems(item, ID) {
+    var itemSection = document.getElementById(ID);
+    var name = document.createElement("li");
+    name.appendChild(document.createTextNode(item.name));
+    itemSection.appendChild(name);
+
+}
 
 function numbers(id) {
     numbercomb = numbercomb + id;
