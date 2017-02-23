@@ -57,7 +57,7 @@ function numbers(id) {
 }
 
 function addNumbers() {
-    checking(numbercomb);  ///vi ska byta ut alert mot något annat.
+    numbercomb2 = numbercomb; 
     numbercomb = "";
 }
 
