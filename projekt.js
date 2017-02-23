@@ -19,9 +19,9 @@ function indexPageLoaded() {
     loadItems(salad[1], "meatball");
     loadItems(salad[2], "egg");
     /*
-    loadItems(wine[0], "white");
-    loadItems(wine[1], "rose");
-    loadItems(wine[2], "red");
+      loadItems(wine[0], "white");
+      loadItems(wine[1], "rose");
+      loadItems(wine[2], "red");
     */
     loadItems(sideDish[0], "tacos");
     loadItems(sideDish[1], "fries");
@@ -34,13 +34,11 @@ function indexPageLoaded() {
     loadItems(desserts[0], "semla");
     loadItems(desserts[1], "mudcake");
     loadItems(desserts[2], "lemoncake");
-
 }
 
 var numbercomb = "";
+var numbercomb2 = "";
 
-
-//Behövs denna??
 function item(name, price, ingredients) {
     this.name = name;
     this.price = price;
@@ -52,7 +50,6 @@ function loadItems(item, ID) {
     var name = document.createElement("li");
     name.appendChild(document.createTextNode(item.name));
     itemSection.appendChild(name);
-
 }
 
 function numbers(id) {
@@ -63,14 +60,6 @@ function addNumbers() {
     checking(numbercomb);  ///vi ska byta ut alert mot något annat.
     numbercomb = "";
 }
-/*
-function checking(numbercomb){
-    if (numbercomb > 0){
-	
-    }
-
-}*/
-
 
 function selectFood() {
     if(document.getElementById('hamburger').value=='Cheeseburger'){
@@ -88,7 +77,6 @@ function selectFood() {
 }
 
 function selectDrink(id) {
-
 }
 
 function food(name, price, ingredients) {
@@ -115,291 +103,130 @@ function printAll(object, id) {
     itemSection.appendChild(item);
 }
 
-//var numbros1 = 0;
-//var numbros2 = 0;
-//var numbros3 = 0;
-//var numbros4 = 0;
+function replaceIfInList(listan, maten, replaceWith){ 
+    var index = listan.indexOf(maten);
+    if(index !== -1){
+        listan[index-1] = replaceWith;
+    }
+    else {
+        listan.push(replaceWith);
+        listan.push(maten);
+    }
+}
+
+function deleteIfNull(listan, maten){
+    var index = listan.indexOf(maten);
+    if(index !== -1){
+        listan[index-1] = "";
+        listan[index] = "";
+    }
+}
+
 var receipt = [];
 
+function sendToReceipt(hamm, shortie, version){
+    if(document.getElementById(version).value==shortie){
+        var receiptSection = document.getElementById("texten");
+        var tableRow = document.createElement("tr");
+        var item = document.createElement("BUTTON");
+        item.style.height = "50px";
+        var numberOne = 0;
+        numberOne = numberOne + 1;
+        var amount = document.createTextNode(numberOne + "x");
+        var toReceipt = document.createTextNode(hamm);
+        item.appendChild(amount);
+        item.appendChild(toReceipt);
+        tableRow.appendChild(item);
+        receiptSection.appendChild(tableRow);
+        receipt.push(numberOne);
+        receipt.push(hamm);
+        item.onclick = function(){
+            var add = document.getElementById("plus");
+            var subtract = document.getElementById("minus");
+            if(numbercomb2 != ""){
+                item.removeChild(item.childNodes[0]);
+                numberOne = parseFloat(numbercomb2);
+                var amount = document.createTextNode(numberOne + "x");
+                item.appendChild(amount);
+                item.appendChild(toReceipt);
+                replaceIfInList(receipt, hamm, numbercomb2);
+                numbercomb2="";
+            }
+            
+            add.onclick = function(){
+                if(numberOne >= 1){
+                    item.removeChild(item.childNodes[0]);
+                    numberOne = numberOne + 1;
+                    var amount = document.createTextNode(numberOne + "x");
+                    item.appendChild(amount);
+                    item.appendChild(toReceipt);
+                    replaceIfInList(receipt, hamm, numberOne);
+                }
+            }
+            subtract.onclick = function(){
+                if(numberOne >= 1){
+                    item.removeChild(item.childNodes[0]);
+                    numberOne = numberOne - 1;
+                    var amount = document.createTextNode(numberOne + "x");
+                    item.appendChild(amount);
+                    item.appendChild(toReceipt);
+                    replaceIfInList(receipt, hamm, numberOne);
+                }
+                if(numberOne == 0){
+                    item.parentNode.removeChild(item);
+                    deleteIfNull(receipt, hamm);
+                }
+            }
+        }
+    }
+}
+
 function sendToKitchenHamburger(){
-    if(document.getElementById('hamburger').value=='Cheeseburger'){
-	var receiptSection = document.getElementById("texten");
-	var item = document.createElement("BUTTON");              // Create a <h1> element
-//	document.body.appendChild(h);
-	var numberOne = 0;
-
-	numberOne = numberOne + 1;
-	var amout = document.createTextNode(numberOne + "x");
-	var toReceipt = document.createTextNode("Cheeseburger");
-	item.appendChild(amount);
-	item.appendChild(toReceipt);
-	receiptSection.appendChild(item);
-
-	receipt.push("Cheeseburger");
-
-	item.onclick = function(){
-	    if(numberOne >= 1){
-		item.removeChild(h.childNodes[0]);
-		numberOne = numberOne + 1;
-		var amount = document.createTextNode(numberOne + "x");
-		item.appendChild(amount);
-		item.appendChild(toReceipt);
-	    }	    
-	}
-    }
-    if(document.getElementById('hamburger').value=='Cheese and bacon'){
-	var receiptSection = document.getElementById("texten");
-	var item = document.createElement("BUTTON");
-//	document.body.appendChild(h);
-        // Create a <h1> element
-	var numberTwo = 0;
-	numberTwo = numberTwo +1;
-	var amount = document.createTextNode(numberTwo + "x");
-	var toReceipt = document.createTextNode("Cheese and bacon burger");
-	item.appendChild(amount);
-	item.appendChild(toReceipt);
-	receiptSection.appendChild(item); 
-	receipt.push("Cheese and bacon burger");
-	item.onclick = function(){
-	    if(numberTwo >= 1){
-		item.removeChild(item.childNodes[0]);
-		numberTwo = numberTwo +1;
-		var amount = document.createTextNode(numberTwo + "x");
-		item.appendChild(amount);
-		item.appendChild(toReceipt);
-	    }
-	    
-	}
-    }
-    if(document.getElementById('hamburger').value=='Chevre and honey'){
-	var toReceipt = document.getElementById("texten");
-	var item = document.createElement("BUTTON");
-//	document.body.appendChild(h);
-	// Create a <h1> element
-	var numberThree = 0;
-	numberThree = numberThree +1;
-	var amount = document.createTextNode(numberThree + "x");
-	var toReceipt = document.createTextNode("Chevre honey burger");
-	item.appendChild(amount);
-	item.appendChild(toReceipt);
-	receiptSection.appendChild(item); 
-	receipt.push("Chevre honey burger");
-	item.onclick = function(){
-	    if(numberThree >= 1){
-		item.removeChild(h.childNodes[0]);
-		numberThree = numberThree +1;
-		var amount = document.createTextNode(numberThree + "x");
-		item.appendChild(amount);
-		item.appendChild(toReceipt);
-	    }
-	    
-	}
-    }
-    if(document.getElementById('hamburger').value=='Veggie'){
-	var receiptSection = document.getElementById("texten");
-	var item = document.createElement("BUTTON");              // Create a <h1> element
-	//	document.body.appendChild(h);
-	var numberFour = 0;
-	numberFour =numberFour + 1;
-	var amount = document.createTextNode(numberFour + "x");
-	var toReceipt = document.createTextNode("Veggieburger");
-	item.appendChild(amount);
-	item.appendChild(toReceipt);
-	receiptSection.appendChild(item); 
-	receipt.push("Veggieburger");
-	
-    	item.onclick = function(){
-	    if(numberFour >= 1){
-		item.removeChild(item.childNodes[0]);
-		numberFour = numberFour + 1;
-		var amount = document.createTextNode(numberFour + "x");
-		item.appendChild(amount);
-		item.appendChild(toReceipt);
-	    }
-	    
-	}
-    }
+    sendToReceipt("Cheeseburger", 'Cheeseburger', 'hamburger');
+    sendToReceipt("Cheese and bacon", 'Cheese and bacon','hamburger');
+    sendToReceipt("Chevre and honey", 'Chevre and honey','hamburger');
+    sendToReceipt("Veggie",'Veggie','hamburger');
 }
 
 function sendToKitchenBeerCider(){
-    if(document.getElementById('beercider').value=='Carlsberg'){
-	var receiptSection = document.getElementById("texten");
-	var item = document.createElement("H1")              // Create a <h1> element
-	var toReceipt = document.createTextNode("Carlsberg");
-	item.appendChild(toReceipt);
-	receiptSection.appendChild(item); 
-    }
-    if(document.getElementById('beercider').value=='Heineken'){
-	var receiptSection = document.getElementById("texten");
-	var item = document.createElement("H1")              // Create a <h1> element
-	var toReceipt = document.createTextNode("Heineken");
-	item.appendChild(toReceipt);
-	receiptSection.appendChild(item); 
-    }
-    if(document.getElementById('beercider').value=='Pear cider'){
-	var receiptSection = document.getElementById("texten");
-	var item = document.createElement("H1")              // Create a <h1> element
-	var toReceipt = document.createTextNode("Pear cider");
-	item.appendChild(toReceipt);
-	receiptSection.appendChild(item); 
-    }
-    if(document.getElementById('beercider').value=='Apple cider'){
-	var receiptSection = document.getElementById("texten");
-	var item = document.createElement("H1")              // Create a <h1> element
-	var toReceipt = document.createTextNode("Apple cider");
-	item.appendChild(toReceipt);
-	receiptSection.appendChild(item);
-    }
+    sendToReceipt("Carlsberg", 'Carlsberg','beercider');
+    sendToReceipt("Heineken", 'Heineken', 'beercider');
+    sendToReceipt("Pear cider", 'Pear cider', 'beercider');
+    //sendToReceipt("Pear cider", 'Pear cider', 'beercider');
+    sendToReceipt("Apple cider",'Apple cider', 'beercider');
 }
 
-
 function sendToKitchenSalad(){
-    if(document.getElementById('salad').value=='Ceasar salad'){
-	var receiptSection = document.getElementById("texten");
-	var item = document.createElement("H1")              // Create a <h1> element
-	var toReceipt = document.createTextNode("Ceasar salad");
-	h.appendChild(toReceipt);
-	receiptSection.appendChild(item); 
-	receipt.push("Cesar salad");
-    }
-    if(document.getElementById('salad').value=='Meatball salad'){
-	var receiptSection = document.getElementById("texten");
-	var item = document.createElement("H1")              // Create a <h1> element
-	var toReceipt = document.createTextNode("Meatball salad");
-	item.appendChild(toReceipt);
-	receiptSection.appendChild(item); 
-	receipt.push("Meatball salad");
-    }
-    if(document.getElementById('salad').value=='Egg salad'){
-	var receiptSection = document.getElementById("texten");
-	var item = document.createElement("H1")              // Create a <h1> element
-	var toReceipt = document.createTextNode("Egg salad");
-	item.appendChild(toReceipt);
-	receiptSection.appendChild(item); 
-	receipt.push("Egg salad");
-    }
+    sendToReceipt("Ceasar salad",'Ceasar salad','salad');
+    sendToReceipt("Meatball salad",'Meatball salad','salad');
+    sendToReceipt("Egg salad",'Egg salad','salad');
 }
 
 function sendToKitchenWine(){
-    if(document.getElementById('wine').value=='White wine'){
-	var receiptSection = document.getElementById("texten");
-	var item = document.createElement("H1")              // Create a <h1> element
-	var toReceipt = document.createTextNode("White wine");
-	item.appendChild(toReceipt);
-	receiptSection.appendChild(item); 
-    }
-    if(document.getElementById('wine').value=='Rosé wine'){
-	var receiptSection = document.getElementById("texten");
-	var item = document.createElement("H1")              // Create a <h1> element
-	var toReceipt = document.createTextNode("Rosé wine");
-	item.appendChild(toReceipt);
-	receiptSection.appendChild(item); 
-    }
-    if(document.getElementById('wine').value=='Red wine'){
-	var receiptSection = document.getElementById("texten");
-	var item = document.createElement("H1")              // Create a <h1> element
-	var toReceipt = document.createTextNode("Red wine");
-	item.appendChild(toReceipt);
-	receiptSection.appendChild(item); 
-    }
+    sendToReceipt("White wine",'White wine','wine');
+    sendToReceipt("Rosé wine",'Rosé wine','wine');
+    sendToReceipt("Red wine",'Red wine','wine');
 }
 
 
 function sendToKitchenSideDish(){
-    if(document.getElementById('sideDish').value=='Tacos'){
-	var receiptSection = document.getElementById("texten");
-	var item = document.createElement("H1")              // Create a <h1> element
-	var toReceipt = document.createTextNode("Tacos");
-	item.appendChild(toReceipt);
-	receiptSection.appendChild(item); 
-	receipt.push("Tacos");
-    }
-    if(document.getElementById('sideDish').value=='French fries'){
-	var receiptSection = document.getElementById("texten");
-	var item = document.createElement("H1")              // Create a <h1> element
-	var toReceipt = document.createTextNode("French fries");
-	item.appendChild(toReceipt);
-	receiptSection.appendChild(item); 
-	receipt.push("French fries");
-    }
-    if(document.getElementById('sideDish').value=='Nachos'){
-	var receiptSection = document.getElementById("texten");
-	var item = document.createElement("H1")              // Create a <h1> element
-	var toReceipt = document.createTextNode("Nachos");
-	item.appendChild(toReceipt);
-	receiptSection.appendChild(item); 
-	receipt.push("Nachos");
-    }
-    if(document.getElementById('sideDish').value=='Mozzarella-sticks'){
-	var receiptSection = document.getElementById("texten");
-	var item = document.createElement("H1")              // Create a <h1> element
-	var toReceipt = document.createTextNode("Mozzarella-sticks");
-	item.appendChild(toReceipt);
-	receiptSection.appendChild(item); 
-	receipt.push("Mozzarella-sticks");
-    }
+    sendToReceipt("Tacos",'Tacos','sideDish');
+    sendToReceipt("French fries",'French fries','sideDish');
+    sendToReceipt("Nachos",'Nachos','sideDish');
+    sendToReceipt("Mozzarella-sticks",'Mozzarella-sticks','sideDish');
 }
-
 
 function sendToKitchenSoftDrinks(){
-    if(document.getElementById('softDrinks').value=='Coca cola'){
-	var receiptSection = document.getElementById("texten");
-	var item = document.createElement("H1")              // Create a <h1> element
-	var toReceipt = document.createTextNode("Coca-cola");
-	item.appendChild(toReceipt);
-	receiptSection.appendChild(item); 
-    }
-    if(document.getElementById('softDrinks').value=='Fanta'){
-	var receiptSection = document.getElementById("texten");
-	var item = document.createElement("H1")              // Create a <h1> element
-	var toReceipt = document.createTextNode("Fanta");
-	item.appendChild(toReceipt);
-	receiptSection.appendChild(item); 
-    }
-    if(document.getElementById('softDrinks').value=='Sprite'){
-	var receiptSection = document.getElementById("texten");
-	var item = document.createElement("H1")              // Create a <h1> element
-	var toReceipt = document.createTextNode("Sprite");
-	item.appendChild(toReceipt);
-	receiptSection.appendChild(item); 
-    }
-    if(document.getElementById('softDrinks').value=='Sparkling water'){
-	var receiptSection = document.getElementById("texten");
-	var item = document.createElement("H1")              // Create a <h1> element
-	var toReceipt = document.createTextNode("Sparkling water");
-	item.appendChild(toReceipt);
-	receiptSection.appendChild(item); 
-    }
+    sendToReceipt("Coca cola",'Coca cola','softDrinks');
+    sendToReceipt("Fanta",'Fanta','softDrinks');
+    sendToReceipt("Sprite",'Sprite','softDrinks');
+    sendToReceipt("Sparkling water",'Sparkling water','softDrinks');
 }
 
-
 function sendToKitchenDesserts(){
-    if(document.getElementById('desserts').value=='Semla'){
-	var receiptSection = document.getElementById("texten");
-	var item = document.createElement("H1")              // Create a <h1> element
-	var toReceipt = document.createTextNode("Semla");
-	item.appendChild(toReceipt);
-	receiptSection.appendChild(item); 
-	receipt.push("Semla");
-    }
-    if(document.getElementById('desserts').value=='Mudcake'){
-	var receiptSection = document.getElementById("texten");
-	var item = document.createElement("H1")              // Create a <h1> element
-	var toReceipt = document.createTextNode("Mudcake");
-	item.appendChild(toReceipt);
-	receiptSection.appendChild(item); 
-	receipt.push("Mudcake");
-    }
-    if(document.getElementById('desserts').value=='Lemoncake'){
-	var receiptSection = document.getElementById("texten");
-	var item = document.createElement("H1")              // Create a <h1> element
-	var toReceipt = document.createTextNode("Lemoncake");
-	item.appendChild(toReceipt);
-	receiptSection.appendChild(item); 
-	receipt.push("Lemoncake");
-    }
-    
-    
+    sendToReceipt("Semla",'Semla','desserts');
+    sendToReceipt("Mudcake",'Mudcake','desserts');
+    sendToReceipt("Lemoncake",'Lemoncake','desserts');
 }
 
 function sendtok(){
@@ -407,4 +234,3 @@ function sendtok(){
     receipt = [];
     document.getElementById("texten").innerHTML = "";
 }
-
