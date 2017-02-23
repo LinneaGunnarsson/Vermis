@@ -3,12 +3,12 @@
   
   <head>
     <link rel="stylesheet" type="text/css" href="projekt.css">
-    <script type="text/javascript" src="projekt.json"></script>
+    <script src="projekt.json"></script>
     <script type="text/javascript" src="projekt.js"></script>
      <script>
       docLoaded(indexPageLoaded);
     </script>
-    <section id= "huvud">
+    <section id= "head">
     <title>Värmlandskällaren</title>
     </section>
   </head>
@@ -25,12 +25,12 @@
     <section class="cash">
       <button id="cash"> Cash </button>
     </section>
-    <section class="Edit">
+    <section class="edit">
       <button id="edit"> Edit </button>
     </section>
-    <section class="Bill">
+    <section class="bill">
       <table>
-	<tr id="kvittot">
+	<tr id="receipt">
 	  <h1 id="t01"> Receipt </h1>	  
 	</tr>
 	<tr id="texten"></tr>
@@ -93,62 +93,62 @@
 	</tr>
       </table>
     </section>
- <section class="Food">
+ <section class="food">
       <table>
 	<table>
 	  <tr id="t1"></tr>
 	  <td>
 	    <select id="hamburger" onchange="sendToKitchenHamburger()">
 	      <option> Hamburger </option>
-	      <option value="Cheese" id="cheeseburger"> Cheese </option>
-	      <option value="Cheese and bacon" id="cheese-bacon"> Cheese and bacon </option>
-	      <option value="Chevre honoung" id="chevre-honey"> Chevre honoung </option>
-	      <option value="Veggie" id="veggie"> Veggie </option>
+	      <option id="cheeseburger"/>
+	      <option id="cheese-bacon"/>
+	      <option id="chevre-honey"/>
+	      <option id="veggie"/>
 	    </select>
 	  </td>
 	  <td>
 	    <select id="beercider" onchange="sendToKitchenBeerCider()">
 	      <option> Beer/cider </option>
-	      <option value="Carlsberg" id="carlsberg"> Carlsberg </option>
-	      <option value="Heineken" id="heineken"> Heineken </option>
-	      <option value="Pear cider" id="pear-cider"> Pear cider </option>
-	      <option value="Apple cider" id="apple-cider"> Apple cider </option>
+	      <option id="carlsberg"/>
+	      <option id="heineken"/>
+	      <option id="pear-cider"/>
+	      <option id="apple-cider"/>
 	    </select>
 	  </td>
 	  <tr id="t2"> </tr>
 	  <td>
 	    <select id="salad" onchange="sendToKitchenSalad()">
 	      <option> Salad </option>
-	      <option value="Ceasar salad" id="cesar"> Ceasar salad </option>
-	      <option value="Meatball salad" id="meatball-salad"> Meatball salad </option>
-	      <option value="Egg salad" id="egg-salad"> Egg salad </option>
+	      <option id="cesar"/>
+	      <option id="meatball"/> 
+	      <option id="egg"/> 
 	    </select>
 	  </td>
 	  <td>
 	    <select id="wine" onchange="sendToKitchenWine()">
 	      <option> Wine </option>
-	      <option value="White" id="white"> White </option>
-	      <option value="Rosé" id="rosé"> Rosé </option>
-	      <option value="Red" id="red"> Red </option>
+	      <option id="white"/>
+	      <option id="rose"/>
+	      <option id="red"/>
 	    </select>
 	  </td>
 	  <tr id="t3"> </tr>
 	  <td>
 	    <select id="sideDish" onchange="sendToKitchenSideDish()">
 	      <option> Side dishes </option>
-	      <option value="Tacos" id="Tacos"> Tacos </option>
-	      <option value="French fries" id="Fries"> French fries </option>
-	      <option value="Nachos" id="Nachos"> Nachos </option>
-	      <option value="Mozzarella-sticks" id="Mozzarella-sticks"> Mozzarella-sticks </option>
+	      <option id="tacos"/>
+	      <option id="fries"/>
+	      <option id="nachos"/>
+	      <option id="mozzarella-sticks"/>
 	    </select>
 	  </td>
 	  <td>
 	    <select id="softDrinks" onchange="sendToKitchenSoftDrinks()">
 	      <option> Soft drinks </option>
-	      <option value="Coca-cola" id="coca-cola"> Coca-cola </option>
-	      <option value="Fanta" id="fanta"> Fanta </option>
-	      <option value="Sprite" id="sprite"> Sprite </option>
-	      <option value="Sparkling water" id="sparkling-water"> Sparkling water </option>
+	      <option id="coca-cola"/>
+	      <option id="fanta"/>
+	      <option id="sprite"/>
+	      <option id="sparkling-water"/>
 	      
 	    </select>
 	  </td>
@@ -156,11 +156,12 @@
 	  <td>
 	    <select id="desserts" onchange="sendToKitchenDesserts()">
 	      <option> Desserts </option>
-	      <option value="Semla" id="semla"> Semla </option>
-	      <option value="Mudcake" id="mudcake"> Mudcake </option>
-	      <option value="Lemoncake" id="lemoncake"> Lemoncake </option>
+	      <option id="semla"/>
+	      <option id="mudcake"/>
+	      <option id="lemoncake"/>
 	    </select>
 	  </td>
+          
 	  <td>	   
 	    <button id="send" onclick="sendtok()"> Send to kitchen   Done </button>
 	  </td>

@@ -15,7 +15,7 @@
     top:0;
 }
 
-#huvud{
+#head{
     width: 3000px;
     height: 500px;
     overflow: hidden;
@@ -84,7 +84,7 @@
 
 
 
-.Food{
+.food{
     position: fixed;
     bottom: 0;
     right: 0;
