@@ -18,11 +18,9 @@ function indexPageLoaded() {
     loadItems(salad[0], "cesar");
     loadItems(salad[1], "meatball");
     loadItems(salad[2], "egg");
-    /*
-      loadItems(wine[0], "white");
-      loadItems(wine[1], "rose");
-      loadItems(wine[2], "red");
-    */
+    loadItems(wine[0], "white");
+    loadItems(wine[1], "rose");   
+    loadItems(wine[2], "red");    
     loadItems(sideDish[0], "tacos");
     loadItems(sideDish[1], "fries");
     loadItems(sideDish[2], "nachos");
