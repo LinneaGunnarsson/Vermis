@@ -32,7 +32,6 @@ function indexPageLoaded() {
     loadItems(desserts[0], "semla");
     loadItems(desserts[1], "mudcake");
     loadItems(desserts[2], "lemoncake");
-    showInfo(hamburger[0]);
 }
 
 var numbercomb = "";
@@ -97,7 +96,14 @@ function deleteIfNull(listan, maten){
         listan[index] = "";
     }
 }
-
+/*
+function showInfo(object) {
+    var infoSection = document.getElementById("infoText");
+    var info = document.createElement("ul");
+    info.appendChild(document.createTextNode("This item contains "+ object.ingredients + "."));
+    infoSection.appendChild(info);
+}
+*/
 var receipt = [];
 
 function sendToReceipt(hamm, shortie, version){
@@ -115,10 +121,11 @@ function sendToReceipt(hamm, shortie, version){
         tableRow.appendChild(item);
         receiptSection.appendChild(tableRow);
         receipt.push(numberOne);
-        receipt.push(hamm);
-        item.onclick = function(){
+        receipt.push(hamm); 
+        item.onclick = function(){ 
             var add = document.getElementById("plus");
             var subtract = document.getElementById("minus");
+            var info = document.getElementById("info");
             if(numbercomb2 != ""){
                 item.removeChild(item.childNodes[0]);
                 numberOne = parseFloat(numbercomb2);
@@ -128,7 +135,6 @@ function sendToReceipt(hamm, shortie, version){
                 replaceIfInList(receipt, hamm, numbercomb2);
                 numbercomb2="";
             }
-            
             add.onclick = function(){
                 if(numberOne >= 1){
                     item.removeChild(item.childNodes[0]);
@@ -152,6 +158,12 @@ function sendToReceipt(hamm, shortie, version){
                     item.parentNode.removeChild(item);
                     deleteIfNull(receipt, hamm);
                 }
+            }
+            info.onclick = function() {
+                var infoSection = document.getElementById("infoText");
+                var info2 = document.createElement("ul");
+                info2.appendChild(document.createTextNode("This item contains "+ (hamburger[1]).ingredients + "."));
+                infoSection.appendChild(info2);
             }
         }
     }
@@ -216,9 +228,4 @@ function sendtok(){
     document.getElementById("texten").innerHTML = "";
 }
 
-function showInfo(object) {
-    var infoSection = document.getElementById("infoText");
-    var info = document.createElement("ul");
-    info.appendChild(document.createTextNode("This item contains "+ object.ingredients));
-    infoSection.appendChild(info);
-}
+
