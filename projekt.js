@@ -99,7 +99,6 @@ function deleteIfNull(listan, maten){
 
 var receipt = [];
 
-sendToReceipt("Rosé wine",'Rosé wine','wine');
 function sendToReceipt(hamm, shortie, version){
     if(document.getElementById(version).value==shortie){
         var receiptSection = document.getElementById("texten");
