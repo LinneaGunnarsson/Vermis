@@ -6,7 +6,6 @@ function docLoaded(fn) {
     }
 }
 
-
 function indexPageLoaded() {
     loadItems(hamburger[0], "cheeseburger");
     loadItems(hamburger[1], "veggie");
@@ -19,9 +18,11 @@ function indexPageLoaded() {
     loadItems(salad[0], "cesar");
     loadItems(salad[1], "meatball");
     loadItems(salad[2], "egg");
-    loadItems(wine[0], "white");
-    loadItems(wine[1], "rose");
-    loadItems(wine[2], "red");
+    /*
+      loadItems(wine[0], "white");
+      loadItems(wine[1], "rose");
+      loadItems(wine[2], "red");
+    */
     loadItems(sideDish[0], "tacos");
     loadItems(sideDish[1], "fries");
     loadItems(sideDish[2], "nachos");
@@ -60,6 +61,10 @@ function addNumbers() {
     numbercomb = "";
 }
 
+function selectTable(){
+    
+}
+
 function selectFood() {
     if(document.getElementById('hamburger').value=='Cheeseburger'){
         alert("hej");
@@ -73,27 +78,6 @@ function selectFood() {
     if(document.getElementById('hamburger').value=='Veggie'){
         alert("you ordered a veggie burger");
     }
-}
-
-function selectDrink(id) {
-}
-
-function food(name, price, ingredients) {
-    this.name = name;
-    this.price = price;
-    this.ingredients = ingredients;
-}
-
-function drinks(name, price) {
-    this.name = name;
-    this.price = price;
-}
-
-function printAll(object, id) {
-    var itemSection = document.getElementById(id);
-    var item = document.createElement("li");
-    item.appendChild(document.createTextNode(object.name));
-    itemSection.appendChild(item);
 }
 
 function replaceIfInList(listan, maten, replaceWith){ 
@@ -117,6 +101,7 @@ function deleteIfNull(listan, maten){
 
 var receipt = [];
 
+sendToReceipt("Rosé wine",'Rosé wine','wine');
 function sendToReceipt(hamm, shortie, version){
     if(document.getElementById(version).value==shortie){
         var receiptSection = document.getElementById("texten");
@@ -179,6 +164,7 @@ function sendToKitchenHamburger(){
     sendToReceipt("Cheese and bacon", 'Cheese and bacon','hamburger');
     sendToReceipt("Chevre and honey", 'Chevre and honey','hamburger');
     sendToReceipt("Veggie",'Veggie','hamburger');
+    document.getElementById('hamburger').value = 'Hamburger';
 }
 
 function sendToKitchenBeerCider(){
@@ -187,26 +173,29 @@ function sendToKitchenBeerCider(){
     sendToReceipt("Pear cider", 'Pear cider', 'beercider');
     //sendToReceipt("Pear cider", 'Pear cider', 'beercider');
     sendToReceipt("Apple cider",'Apple cider', 'beercider');
+    document.getElementById('beercider').value = 'Beer/cider';
 }
 
 function sendToKitchenSalad(){
     sendToReceipt("Ceasar salad",'Ceasar salad','salad');
     sendToReceipt("Meatball salad",'Meatball salad','salad');
     sendToReceipt("Egg salad",'Egg salad','salad');
+    document.getElementById('salad').value = 'Salad';
 }
 
 function sendToKitchenWine(){
     sendToReceipt("White wine",'White wine','wine');
     sendToReceipt("Rosé wine",'Rosé wine','wine');
     sendToReceipt("Red wine",'Red wine','wine');
+    document.getElementById('wine').value ='Wine';
 }
-
 
 function sendToKitchenSideDish(){
     sendToReceipt("Tacos",'Tacos','sideDish');
     sendToReceipt("French fries",'French fries','sideDish');
     sendToReceipt("Nachos",'Nachos','sideDish');
     sendToReceipt("Mozzarella-sticks",'Mozzarella-sticks','sideDish');
+    document.getElementById('sideDish').value = 'Side dishes';
 }
 
 function sendToKitchenSoftDrinks(){
@@ -214,12 +203,14 @@ function sendToKitchenSoftDrinks(){
     sendToReceipt("Fanta",'Fanta','softDrinks');
     sendToReceipt("Sprite",'Sprite','softDrinks');
     sendToReceipt("Sparkling water",'Sparkling water','softDrinks');
+    document.getElementById('softDrinks').value = 'Soft drinks';
 }
 
 function sendToKitchenDesserts(){
     sendToReceipt("Semla",'Semla','desserts');
     sendToReceipt("Mudcake",'Mudcake','desserts');
     sendToReceipt("Lemoncake",'Lemoncake','desserts');
+    document.getElementById('desserts').value = 'Desserts';
 }
 
 function sendtok(){
