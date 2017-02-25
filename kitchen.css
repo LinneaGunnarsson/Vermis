@@ -1,0 +1,40 @@
+#readyQ{
+	position: absolute;
+	text-align: center;
+	right: 100px;
+	top: 0px;
+	border: 4px solid green;
+	border-radius: 8px;
+	width: 500px;
+	height: 600px;
+	
+}
+
+#waitQ{
+	position: absolute;
+	text-align: center;
+	left: 100px;
+	top: 0px;
+	border: 4px solid orange;
+	border-radius: 8px;
+	
+	background-color: 50%;
+	width: 500px;
+	height: 600px;
+}
+
+#chillaBre {
+	position: absolute;
+	left:607px;
+	font-weight: bold;
+	font-size: 110%;
+	top: 565px;
+	background-color: red;
+	background-size: 120%;
+	padding: 10px;
+	border-radius: 8px;
+}
+
+#body{
+	background-color: #fff7e6;
+}
