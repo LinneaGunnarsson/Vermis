@@ -2,7 +2,7 @@ var hamburger = [
     {
 	"name": "Cheeseburger",
 	"price": "50",
-	"ingredients": ["gluten", "lactos", "cucumber", "tomatoes", "mustard", "onion"]
+	"ingredients":[" gluten", " lactos", " cucumber", " tomatoes", " mustard", " onion"]
     },
     {
 	"name": "Veggie",
@@ -19,7 +19,7 @@ var hamburger = [
     {
 	"name": "Chevre and honey",
 	"price": "60",
-	"ingredients": ["honey", "chevre"],
+	"ingredients": ["honey", " chevre"],
     }
 ]
 
@@ -83,7 +83,7 @@ var sideDish = [
     {
 	"name": "Tacos",
 	"price": "50",
-	"ingredients": ["gluten", "lactos", "cucumber", "tomatoes", "mustard", "onion"],
+	"ingredients": [" gluten", " lactos", " cucumber", " tomatoes", " mustard", " onion"],
     },
     {
 	"name": "French fries",
@@ -100,7 +100,7 @@ var sideDish = [
     {
 	"name": "Mozzarella-sticks",
 	"price": "60",
-	"ingredients": ["honey", "chevre"],
+	"ingredients": ["honey", " chevre"],
     }
 ]
 

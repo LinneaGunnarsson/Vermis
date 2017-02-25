@@ -32,6 +32,7 @@ function indexPageLoaded() {
     loadItems(desserts[0], "semla");
     loadItems(desserts[1], "mudcake");
     loadItems(desserts[2], "lemoncake");
+    showInfo(hamburger[0]);
 }
 
 var numbercomb = "";
@@ -72,27 +73,6 @@ function selectFood() {
     if(document.getElementById('hamburger').value=='Veggie'){
         alert("you ordered a veggie burger");
     }
-}
-
-function selectDrink(id) {
-}
-
-function food(name, price, ingredients) {
-    this.name = name;
-    this.price = price;
-    this.ingredients = ingredients;
-}
-
-function drinks(name, price) {
-    this.name = name;
-    this.price = price;
-}
-
-function printAll(object, id) {
-    var itemSection = document.getElementById(id);
-    var item = document.createElement("li");
-    item.appendChild(document.createTextNode(object.name));
-    itemSection.appendChild(item);
 }
 
 function replaceIfInList(listan, maten, replaceWith){ 
@@ -184,7 +164,6 @@ function sendToKitchenBeerCider(){
     sendToReceipt("Carlsberg", 'Carlsberg','beercider');
     sendToReceipt("Heineken", 'Heineken', 'beercider');
     sendToReceipt("Pear cider", 'Pear cider', 'beercider');
-    //sendToReceipt("Pear cider", 'Pear cider', 'beercider');
     sendToReceipt("Apple cider",'Apple cider', 'beercider');
 }
 
@@ -225,4 +204,11 @@ function sendtok(){
     alert(receipt);
     receipt = [];
     document.getElementById("texten").innerHTML = "";
+}
+
+function showInfo(object) {
+    var infoSection = document.getElementById("infoText");
+    var info = document.createElement("ul");
+    info.appendChild(document.createTextNode("This item contains "+ object.ingredients));
+    infoSection.appendChild(info);
 }
