@@ -6,6 +6,7 @@ function docLoaded(fn) {
     }
 }
 
+
 function indexPageLoaded() {
     loadItems(hamburger[0], "cheeseburger");
     loadItems(hamburger[1], "veggie");
