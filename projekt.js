@@ -6,6 +6,7 @@ function docLoaded(fn) {
     }
 }
 
+
 function indexPageLoaded() {
     loadItems(hamburger[0], "cheeseburger");
     loadItems(hamburger[1], "veggie");
@@ -18,11 +19,9 @@ function indexPageLoaded() {
     loadItems(salad[0], "cesar");
     loadItems(salad[1], "meatball");
     loadItems(salad[2], "egg");
-    /*
-      loadItems(wine[0], "white");
-      loadItems(wine[1], "rose");
-      loadItems(wine[2], "red");
-    */
+    loadItems(wine[0], "white");
+    loadItems(wine[1], "rose");
+    loadItems(wine[2], "red");
     loadItems(sideDish[0], "tacos");
     loadItems(sideDish[1], "fries");
     loadItems(sideDish[2], "nachos");
@@ -88,12 +87,6 @@ function food(name, price, ingredients) {
 function drinks(name, price) {
     this.name = name;
     this.price = price;
-}
-
-function wine(name, priceB, priceG) {
-    this.name = name;
-    this.priceB = priceB;
-    this.priceG = priceG;
 }
 
 function printAll(object, id) {
