@@ -224,7 +224,7 @@ function sendToReceipt(hamm, shortie, version, itemm){
             info.onclick = function() {
                 var infoSection = document.getElementById("infoText");
                 var info2 = document.createElement("ul");
-                info2.appendChild(document.createTextNode("This item contains "+ (hamburger[1]).ingredients + "."));
+                info2.appendChild(document.createTextNode("This item contains "+ (itemm).ingredients + "."));
                 infoSection.appendChild(info2);
             }
         }
