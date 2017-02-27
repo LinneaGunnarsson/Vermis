@@ -19,9 +19,8 @@ function indexPageLoaded() {
     loadItems(salad[1], "meatball");
     loadItems(salad[2], "egg");
     loadItems(wine[0], "white");
-    loadItems(wine[1], "rose");
-    loadItems(wine[2], "red");
- 
+    loadItems(wine[1], "rose");   
+    loadItems(wine[2], "red");   
     loadItems(sideDish[0], "tacos");
     loadItems(sideDish[1], "fries");
     loadItems(sideDish[2], "nachos");
@@ -102,6 +101,10 @@ function addNumbers() {
     numbercomb = "";
 }
 
+function selectTable(){
+    
+}
+
 function selectFood() {
     if(document.getElementById('hamburger').value=='Cheeseburger'){
         alert("hej");
@@ -115,33 +118,6 @@ function selectFood() {
     if(document.getElementById('hamburger').value=='Veggie'){
         alert("you ordered a veggie burger");
     }
-}
-
-function selectDrink(id) {
-}
-
-function food(name, price, ingredients) {
-    this.name = name;
-    this.price = price;
-    this.ingredients = ingredients;
-}
-/*
-function drinks(name, price) {
-    this.name = name;
-    this.price = price;
-}
-
-function wine(name, price, ingredients) {
-    this.name = name;
-    this.price = price;
-    this.ingredients = ingredients;
-}
-*/
-function printAll(object, id) {
-    var itemSection = document.getElementById(id);
-    var item = document.createElement("li");
-    item.appendChild(document.createTextNode(object.name));
-    itemSection.appendChild(item);
 }
 
 function replaceIfInList(listan, maten, replaceWith){ 
@@ -162,8 +138,6 @@ function deleteIfNull(listan, maten){
         listan[index] = "";
     }
 }
-
-
 
 var receipt = [];
 //la till id
@@ -189,10 +163,11 @@ function sendToReceipt(hamm, shortie, version, itemm){
 	
 	
         receipt.push(numberOne);
-        receipt.push(hamm);
-        item.onclick = function(){
+        receipt.push(hamm); 
+        item.onclick = function(){ 
             var add = document.getElementById("plus");
             var subtract = document.getElementById("minus");
+            var info = document.getElementById("info");
             if(numbercomb2 != ""){
 		price.removeChild(price.childNodes[0]);
 		price.appendChild(document.createTextNode((itemm.price)*numbercomb2));
@@ -208,7 +183,6 @@ function sendToReceipt(hamm, shortie, version, itemm){
                 replaceIfInList(receipt, hamm, numbercomb2);
                 numbercomb2="";
             }
-            
             add.onclick = function(){
                 if(numberOne >= 1){
 	  
@@ -247,6 +221,12 @@ function sendToReceipt(hamm, shortie, version, itemm){
                     deleteIfNull(receipt, hamm);
                 }
             }
+            info.onclick = function() {
+                var infoSection = document.getElementById("infoText");
+                var info2 = document.createElement("ul");
+                info2.appendChild(document.createTextNode("This item contains "+ (hamburger[1]).ingredients + "."));
+                infoSection.appendChild(info2);
+            }
         }
     }
 }
@@ -280,7 +260,6 @@ function sendToKitchenWine(){
     sendToReceipt("Red wine",'Red wine','wine',wine[2]);
 }
 
-
 function sendToKitchenSideDish(){
     sendToReceipt("Tacos",'Tacos','sideDish',sideDish[0]);
     sendToReceipt("French fries",'French fries','sideDish',sideDish[1]);
@@ -306,3 +285,5 @@ function sendtok(){
     receipt = [];
     document.getElementById("texten").innerHTML = "";
 }
+
+

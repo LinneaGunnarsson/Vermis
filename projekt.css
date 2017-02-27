@@ -1,5 +1,7 @@
+/*
 @import url("reset.css");
 @import url("https://googleapis.com/css?family=Droid+Sherif|Share+Tech+Mono");
+*/
 
 .addandsub{
     position:fixed;
@@ -13,6 +15,19 @@
     font-size:200%;
     background-color:#ffff66;
     top:0;
+}
+
+.information{
+    postition:fixed;
+    bottom:0;
+    left:0;
+}
+
+#infoText{
+    position:fixed;
+    background: lightgray;
+    width:29%;
+    height:10%;
 }
 
 #head{
@@ -37,12 +52,12 @@
     top: 135px;
 }
 
-#edit{
+#info{
     position:fixed;
-    top:19px;
+    top:405px;
     left:396px;
-    width:264px;
-    height:100px;
+    width:85px;
+    height:85px;
     font-size:200%;
     background-color: #ffd480;
     color:#660033;

@@ -15,8 +15,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-
-
+  
+  
   
   <body>
     <section class="card">
@@ -25,9 +25,7 @@
     <section class="cash">
       <button id="cash"> Cash </button>
     </section>
-    <section class="edit">
-      <button id="edit"> Edit </button>
-    </section>
+
     <section class="bill">
       <table>
 	<tr id="receipt">
@@ -49,16 +47,22 @@
     </section>
     <section class="addandsub">
       <table>
-    <td>
-      <button class="addsub" id="plus"> + </button>
-	  </td>
-	  <td>
-	    <button class="addsub" id="minus"> - </button>
-	  </td>
-	</table>
+        <td>
+          <button class="addsub" id="plus"> + </button>
+	</td>
+        <td>
+	  <button class="addsub" id="minus"> - </button>
+	</td>
+      </table>
     </section>
-    <section class="numbers">
+    <section class="information">
       <table>
+        <td class="information" id="infoText"></td>
+      </table>
+      <section/>
+    </section>
+      <section class="numbers">
+        <table>
 	<tr id="r1">
 	  <td>
 	    <button class="n" id="1" onclick="numbers(id)"> 1 </button>
@@ -94,21 +98,23 @@
 	</tr>
 	<tr id="r4">
 	  <td>
-	    <td>
-	      <button class="n" id="0" onclick="numbers(id)"> 0 </button>
-	      </td>
-	      <td>
+            <button class="info" id="info"> i </button>
+          </td>
+	  <td>
+	    <button class="n" id="0" onclick="numbers(id)"> 0 </button>
+	  </td>
+	  <td>
 	    <button class="n" id="enter" onclick="addNumbers()"> Enter </button>
 	  </td>
-	  </td>
+</td>
 	</tr>
-      </table>
-    </section>
- <section class="food">
-      <table>
-	<table>
-	  <tr id="t1"></tr>
-	  <td>
+</table>
+</section>
+<section class="food">
+  <table>
+    <table>
+      <tr id="t1"></tr>
+      <td>
 	    <select id="hamburger" onchange="sendToKitchenHamburger()">
 	      <option> Hamburger </option>
 	      <option id="cheeseburger"/>
