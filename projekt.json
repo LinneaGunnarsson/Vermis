@@ -26,19 +26,19 @@ var hamburger = [
 var beercider = [
     {
 	"name": "Carlsberg",
-	"price": "0",
+	"price": "10",
     },
     {
 	"name": "Heineken",
-	"price": "0",
+	"price": "15",
     },
     {
 	"name": "Pear cider",
-	"price": "0",
+	"price": "99",
     },
     {
 	"name": "Apple cider",
-	"price": "0",
+	"price": "150",
     },
 ]
 
@@ -64,17 +64,17 @@ var wine = [
      {
 	"name": "White wine",
 	"price": "70",
-	"ingredients": ["Bottle", "Glas"],
+	"ingredients": "Bottle",
      },
      {
 	"name": "Rosé wine",
 	"price": "70",
-	"ingredients": ["Bottle", "Glas"],
+	"ingredients": "Bottle",
      },
     {
 	"name": "Red wine",
 	"price": "70",
-	"ingredients": ["Bottle", "Glas"],
+	"ingredients": "Bottle",
     }
 ]
 
