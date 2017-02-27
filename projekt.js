@@ -223,6 +223,7 @@ function sendToReceipt(hamm, shortie, version, itemm){
             }
             info.onclick = function() {
                 var infoSection = document.getElementById("infoText");
+                infoSection.innerHTML="";
                 var info2 = document.createElement("ul");
                 info2.appendChild(document.createTextNode("This item contains "+ (itemm).ingredients + "."));
                 infoSection.appendChild(info2);
@@ -238,26 +239,29 @@ function sendToKitchenHamburger(){
     sendToReceipt("Cheese and bacon", 'Cheese and bacon','hamburger',hamburger[1]);
     sendToReceipt("Chevre and honey", 'Chevre and honey','hamburger',hamburger[2]);
     sendToReceipt("Veggie",'Veggie','hamburger',hamburger[3]);
+    document.getElementById('hamburger').value = 'Hamburger';
 } 
 
 function sendToKitchenBeerCider(){
     sendToReceipt("Carlsberg", 'Carlsberg','beercider',beercider[0]);
     sendToReceipt("Heineken", 'Heineken', 'beercider',beercider[1]);
     sendToReceipt("Pear cider", 'Pear cider', 'beercider',beercider[2]);
-    //sendToReceipt("Pear cider", 'Pear cider', 'beercider');
     sendToReceipt("Apple cider",'Apple cider', 'beercider',beercider[3]);
+    document.getElementById('beercider').value = 'Beer/cider';
 }
 
 function sendToKitchenSalad(){
     sendToReceipt("Ceasar salad",'Ceasar salad','salad',salad[0]);
     sendToReceipt("Meatball salad",'Meatball salad','salad',salad[1]);
     sendToReceipt("Egg salad",'Egg salad','salad',salad[2]);
+    document.getElementById('salad').value = 'Salad';
 }
 
 function sendToKitchenWine(){
     sendToReceipt("White wine",'White wine','wine',wine[0]);
     sendToReceipt("Rosé wine",'Rosé wine','wine',wine[1]);
     sendToReceipt("Red wine",'Red wine','wine',wine[2]);
+    document.getElementById('wine').value ='Wine';
 }
 
 function sendToKitchenSideDish(){
@@ -265,6 +269,7 @@ function sendToKitchenSideDish(){
     sendToReceipt("French fries",'French fries','sideDish',sideDish[1]);
     sendToReceipt("Nachos",'Nachos','sideDish',sideDish[2]);
     sendToReceipt("Mozzarella-sticks",'Mozzarella-sticks','sideDish',sideDish[3]);
+    document.getElementById('sideDish').value = 'Side dishes';
 }
 
 function sendToKitchenSoftDrinks(){
@@ -272,18 +277,32 @@ function sendToKitchenSoftDrinks(){
     sendToReceipt("Fanta",'Fanta','softDrinks',softDrinks[1]);
     sendToReceipt("Sprite",'Sprite','softDrinks',softDrinks[2]);
     sendToReceipt("Sparkling water",'Sparkling water','softDrinks',softDrinks[3]);
+    document.getElementById('softDrinks').value = 'Soft drinks';
 }
 
 function sendToKitchenDesserts(){
     sendToReceipt("Semla",'Semla','desserts',desserts[0]);
     sendToReceipt("Mudcake",'Mudcake','desserts',desserts[1]);
     sendToReceipt("Lemoncake",'Lemoncake','desserts',desserts[2]);
+    document.getElementById('desserts').value = 'Desserts';
 }
 
 function sendtok(){
     alert(receipt);
     receipt = [];
     document.getElementById("texten").innerHTML = "";
+}
+
+function selectTable(){
+    var tableNum = numbercomb2;
+    while(tableNum === ""){
+	selectTable();
+    }
+    tableNum = parseFloat(numbercomb2);
+    if(!(t01.innerText.includes("for table:"))){
+	var rece = t01.innerText;
+	t01.innerText = rece + '\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0' + "for table:" + "\u00A0" + tableNum;
+    }
 }
 
 

@@ -189,3 +189,14 @@ body{
     font-size:200%;
 }
 
+#tableButt{
+    position:fixed;
+    left: 393px;
+    top:17px;
+    width:264px;
+    height:100px;
+    font-size:200%;
+    background-color: #3399ff;
+    color:#660033;
+}
+
