@@ -291,6 +291,7 @@ function sendtok(){
     alert(receipt);
     receipt = [];
     document.getElementById("texten").innerHTML = "";
+    document.getElementById("cost").innerHTML="";
 }
 
 function selectTable(){
