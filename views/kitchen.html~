@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="kitchen.css">
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="nationPub.js"></script>
+    <script src="kitchen.js"></script>
+
+ </head>
+ <body id="body">
+    <div id="orders">
+      <h1>Väntande beställningar</h1>
+      <ol>
+	<li v-for="(item, key) in orders" v-if="!item.done"> 
+          {{ key }} : {{ item.orderItems.join(', ') }} 
+          <button v-on:click="markDone(key)">
+            Klart
+          </button>
+	</li>
+      </ol>
+      <h1>Färdiga beställningar</h1>
+      <ol>
+	<li v-for="(item, key) in orders" v-if="item.done"> 
+          {{ key }} : {{ item.orderItems.join(', ') }}
+	</li>
+      </ol>
+    </div>
+  
+ </body>
+</html>
