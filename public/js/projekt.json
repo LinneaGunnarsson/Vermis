@@ -7,19 +7,19 @@ var hamburger = [
     {
 	"name": "Veggie",
 	"price": "500",
-	"ingredients": ["vegetables"],
+	"ingredients": ["vegetables"]
     },
 
     {
 	"name": "Cheese and bacon",
 	"price": "5",
-	"ingredients":["cheese and a dash of bacon"],
+	"ingredients":["cheese and a dash of bacon"]
     },
 
     {
 	"name": "Chevre and honey",
 	"price": "60",
-	"ingredients": ["honey", " chevre"],
+	"ingredients": ["honey", " chevre"]
     }
 ]
 
@@ -46,17 +46,17 @@ var salad = [
     {
 	"name": "Ceasar salad",
 	"price": "500",
-	"ingredients": ["chicken and salad"],
+	"ingredients": ["chicken and salad"]
     },
     {
 	"name": "Meatball salad",
 	"price": "500",
-	"ingredients": ["meatballs"],
+	"ingredients": ["meatballs"]
     },
     {
 	"name": "Egg salad",
 	"price": "500",
-	"ingredients": ["eggs"],
+	"ingredients": ["eggs"]
     }
 ]
 
@@ -88,7 +88,7 @@ var sideDish = [
     {
 	"name": "French fries",
 	"price": "500",
-	"ingredients": ["potato],
+	"ingredients": ["potato"]
     },
 
     {
@@ -100,7 +100,7 @@ var sideDish = [
     {
 	"name": "Mozzarella-sticks",
 	"price": "60",
-	"ingredients": ["cheese", " chevre"],
+	"ingredients": ["cheese", " chevre"]
     }
 ]
 
@@ -127,18 +127,18 @@ var desserts = [
     {
 	"name": "Semla",
 	"price": "0",
-	"ingredients": ["gluten"],
+	"ingredients": ["gluten"]
     },
     {
 	"name": "Mudcake",
 	"price": "500",
-	"ingredients": ["chocolate"],
+	"ingredients": ["chocolate"]
     },
 
     {
 	"name": "Lemoncake",
 	"price": "5",
-	"ingredients": ["lemons and sugar :)"],
+	"ingredients": ["lemons and sugar :)"]
     }
 ]
 
