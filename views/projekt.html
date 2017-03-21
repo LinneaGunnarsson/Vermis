@@ -26,7 +26,20 @@
     </section>
     <section class="cash">
       <button id="cash" onclick="payment()"> Cash </button>
-      <button id="tableButt" onclick="selectTable()"> Table </button>
+       <table>
+        <tr id="t"></tr>
+        <td>
+	  <select id="tableButt" onchange="selectTable()">
+	    <option> Table </option>
+	    <option id="table1"> 1 </option>
+	    <option id="table2"> 2 </option>
+            <option id="table3"> 3 </option>
+            <option id="table4"> 4 </option>
+            <option id="table5"> 5 </option>
+            <option id="table6"> 6 </option>
+	  </select>
+        </td>
+      </table>
     </section>
 
     <section class="bill">
