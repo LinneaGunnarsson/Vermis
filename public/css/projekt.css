@@ -207,3 +207,10 @@ body{
     background-color: #3399ff;
     color:#660033;
 }
+
+#mudcake, #lemoncake, #semla, #coca-cola, #fanta, #sprite, #sparkling-water, #tacos, #nachos, #fries, #mozzarella-sticks, #white, #red, #rose, #cesar, 
+#meatball, #egg, #apple-cider, #pear-cider, #heineken, #carlsberg, #chevre-honey, #veggie, #cheese-bacon, #cheeseburger {
+    width:300px;
+    height:150px;
+    font-size:150%;
+}
