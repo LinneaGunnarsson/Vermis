@@ -49,40 +49,12 @@ function indexPageLoaded() {
     
     loadVueForReal();
 }
-/*
-function indexPageL() {
-    loadPrice("cheeseburger");
-    loadPrice("veggie");
-    loadPrice("cheese-bacon");
-    loadPrice("chevre-honey");
-    loadPrice("carlsberg");
-    loadPrice("heineken");
-    loadPrice("pear-cider");
-    loadPrice("apple-cider");
-    loadPrice("cesar");
-    loadPrice("meatball");
-    loadPrice("egg");
-    loadPrice("white");
-    loadPrice("rose");
-    loadPrice("red");
-    
-    loadPrice("tacos");
-    loadPrice("fries");
-    loadPrice("nachos");
-    loadPrice("mozzarella-sticks");
-    loadPrice("coca-cola");
-    loadPrice("fanta");
-    loadPrice("sprite");
-    loadPrice("sparkling-water");
-    loadPrice("semla");
-    loadPrice("mudcake");
-    loadPrice("lemoncake");
-}
-*/
+
 
 
 var numbercomb = "";
 var numbercomb2 = "";
+var theSum;
 
 function item(name, price, ingredients) {
     this.name = name;
@@ -97,28 +69,6 @@ function loadItems(item, ID) {
   //  name.appendChild(document.createTextNode(item.price));
     itemSection.appendChild(name);
 
-}
-
-
-function loadPrice(item) {
-  /*  var priceSection = document.getElementById("cost");
-    var price = document.createElement("ul");
-    price.appendChild(document.createTextNode(item.price));
-    priceSection.appendChild(price);
-*//*
-    var sumSection = createTheSection();
-    if (priset== 0){priset = item.price}
-    else{priset = item.price + priset;}
-    var s = document.createTextNode(priset);
-    //
-    if(sumSection.childNodes[0]==null){    
-	sumSection.appendChild(s);
-    }
-    else {
-	sumSection.removeChild(sumSection.childNodes[0]);
-	priset = item + priset;
-	sumSection.appendChild(s);
-    }*/ 
 }
 
 function numbers(id) {
@@ -168,14 +118,42 @@ function deleteIfNull(listan, maten){
     }
 }
 
-var priset=0;
 
+/*	if(sumSection.childNode[0] == null){
+	sumSection.appendChild(document.createTextNode(thaPrice));
+	    }
+	else{*/
+
+//	sumSection.appendChild(document.createTextNode(thaPrice));
+
+
+var priset=0;
+var thaPrice = 0;
 var receipt = [];
 //la till id
 function sendToReceipt(j, hamm, shortie, version, itemm){
     if(document.getElementById(version).value==shortie){
 	
-        var receiptSection = document.getElementById("texten");
+	/*	var receiptSection = document.getElementById("texten");
+		var tableRow = document.createElement("tr");
+		var item = document.createElement("BUTTON");
+		item.style.height = "50px";
+		var numberOne = 0;
+		numberOne = numberOne + 1;
+		var amount = document.createTextNode(numberOne + "x");
+		var toReceipt = document.createTextNode(hamm);
+		item.appendChild(amount);
+		item.appendChild(toReceipt);
+		tableRow.appendChild(item);
+		receiptSection.appendChild(tableRow);
+		var priceSection = document.createElement("cost");
+		var price = document.createElement("ul");
+		price.appendChild(document.createTextNode(itemm.price));
+		priceSection.appendChild(price);
+		priceSection.appendChild(receiptSection);
+		
+	priset = priset + parseInt(itemm.price);*/
+	var receiptSection = document.getElementById("texten");
         var tableRow = document.createElement("tr");
         var item = document.createElement("BUTTON");
         item.style.height = "50px";
@@ -185,15 +163,22 @@ function sendToReceipt(j, hamm, shortie, version, itemm){
         var toReceipt = document.createTextNode(hamm);
         item.appendChild(amount);
         item.appendChild(toReceipt);
-        tableRow.appendChild(item);
+	tableRow.appendChild(item);
         receiptSection.appendChild(tableRow);
+
 	var priceSection = document.getElementById("cost");
+	var priceTableRow = document.createElement("tr");
+	receiptSection.appendChild(priceSection);
 	var price = document.createElement("ul");
 	price.appendChild(document.createTextNode(itemm.price));
-	priceSection.appendChild(price);
-
-	priset = priset + parseInt(itemm.price);
-
+	priceTableRow.appendChild(price);
+	priceSection.appendChild(priceTableRow);
+	var sumSection = document.getElementById("hereInputSum");
+	
+	thaPrice = thaPrice + parseInt(itemm.price);
+//	sumSection.appendChild(document.createTextNode(thaPrice));
+	sumSection.replaceChild(document.createTextNode(thaPrice),sumSection.childNodes[0]);
+	
 	if(j==1) {
             receipt.push(numberOne);
             receipt.push(hamm);} 
@@ -202,12 +187,15 @@ function sendToReceipt(j, hamm, shortie, version, itemm){
             var subtract = document.getElementById("minus");
             var info = document.getElementById("info");
             if(numbercomb2 != ""){
-		price.removeChild(price.childNodes[0]);
-		price.appendChild(document.createTextNode((itemm.price)*numbercomb2));
-		priceSection.appendChild(price);
-		priceToChange = itemm.price*numbercomb2;
 
+		price.replaceChild(document.createTextNode((itemm.price)*numbercomb2),price.childNodes[0]);
+
+		priceToChange = itemm.price*numbercomb2;
 		
+		thaPrice = thaPrice + parseInt(itemm.price*(numbercomb2-1));
+		//	sumSection.appendChild(document.createTextNode(thaPrice));
+		sumSection.replaceChild(document.createTextNode(thaPrice),sumSection.childNodes[0]);
+
                 item.removeChild(item.childNodes[0]);
                 numberOne = parseFloat(numbercomb2);
                 var amount = document.createTextNode(numberOne + "x");
@@ -217,24 +205,25 @@ function sendToReceipt(j, hamm, shortie, version, itemm){
                 numbercomb2="";
 
 		priset = priset + itemm.price*(numbercomb2);
-
+		sumSection.replaceChild(priset,sumSection.childNodes[0]);
             }
             add.onclick = function(){
                 if(numberOne >= 1){
-	  
-		    
+
                     item.removeChild(item.childNodes[0]);
                     numberOne = numberOne + 1;
                     var amount = document.createTextNode(numberOne + "x");
                     item.appendChild(amount);
                     item.appendChild(toReceipt);
                     replaceIfInList(receipt, hamm, numberOne);
-
-		    price.removeChild(price.childNodes[0]);
-		    price.appendChild(document.createTextNode((itemm.price)*numberOne));
-		    priceSection.appendChild(price);
+		    price.replaceChild(document.createTextNode((itemm.price)*numberOne),price.childNodes[0]);
+		    
+		    thaPrice = thaPrice + parseInt(itemm.price);
+		 
+		    sumSection.replaceChild(document.createTextNode(thaPrice),sumSection.childNodes[0]);
+		    
 		    priset = priset + itemm.price;
-			
+		    sumSection.replaceChild(document.createTextNode(priset),sumSection.childNodes[0]);			
                 }
             }
             subtract.onclick = function(){
@@ -243,16 +232,25 @@ function sendToReceipt(j, hamm, shortie, version, itemm){
 		    
                     item.removeChild(item.childNodes[0]);
                     numberOne = numberOne - 1;
-		    price.removeChild(price.childNodes[0]);
-		    price.appendChild(document.createTextNode((itemm.price)*numberOne));
-		    priceSection.appendChild(price);
+		   // price.removeChild(price.childNodes[0]);
+		    price.replaceChild(document.createTextNode((itemm.price)*numberOne),price.childNodes[0]);
+		   
                     var amount = document.createTextNode(numberOne + "x");
                     item.appendChild(amount);
                     item.appendChild(toReceipt);
                     replaceIfInList(receipt, hamm, numberOne);
 
 		    priset = priset - itemm.price;
-		
+		  /*  priceSection.appendChild(price);
+                    var amount = document.createTextNode(numberOne + "x");
+                    item.appendChild(amount);
+                    item.appendChild(toReceipt);
+                    replaceIfInList(receipt, hamm, numberOne);
+
+		    priset = priset - itemm.price;*/
+		    thaPrice = thaPrice - parseInt(itemm.price);
+		 
+		    sumSection.replaceChild(document.createTextNode(thaPrice),sumSection.childNodes[0]);
                 }
                 if(numberOne == 0){
 		    price.parentNode.removeChild(price);
@@ -335,7 +333,7 @@ function sendToKitchenDesserts(){
 
 }
 
-/*function prisetTotal(){
+function prisetTotal(){
     var sumSection = document.getElementById("hereInputSum");
     var s = document.createTextNode(priset);
     sumSection.appendChild(s);
@@ -345,7 +343,7 @@ function sendToKitchenDesserts(){
 function payment(){
  //   var sumSection = prisetTotal();
    // sumSection.deleteNode[0];
-}*/
+}//
 
 function sendtok(){
     document.getElementById("cost").innerHTML="";
@@ -378,5 +376,15 @@ function selectTable(){
     }
     
 }
+
+// <script> prisetTotal()</script>
+/*
+
+	</tr>
+	<td id="texten"></td>
+	<tr id="fo">
+	  <td id="cost"></td>
+	</tr>
+*/
 
 

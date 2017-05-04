@@ -45,11 +45,14 @@
     <section class="bill">
       <table>
 	<tr id="receipt">
-	  <h1 id="t01"> Receipt </h1>	  
-	</tr>
-	<td id="texten"></td>
-	<td id="cost"></td>
-	
+	  <div class="strike-through" style="border-bottom : solid 1px red; margin-bottom : -12px;"></div>
+	  <h1 id="t01"> Receipt </h1>
+	  <td id="texten">
+	   
+	  <td id="cost">
+	    
+	  </td>
+	  </td>
       </table>
       <section class="theSum">
 	<table>
@@ -159,7 +162,7 @@
 	      <option id="meatball"/> 
 	      <option id="egg"/> 
 	    </select>
-	     <script> prisetTotal()</script>
+	    
 	  </td>
 	  <td>
 	    <select id="wine" onchange="sendToKitchenWine()">
