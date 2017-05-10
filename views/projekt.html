@@ -9,11 +9,11 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="js/nationPub.js"></script>
     <script src="js/diner.js"></script>
-     <script>
+    <script>
       docLoaded(indexPageLoaded);
     </script>
     <section id= "head">
-    <title>Värmlandskällaren</title>
+      <title>Värmlandskällaren</title>
     </section>
   </head>
   <meta charset="utf-8">
@@ -26,7 +26,8 @@
     </section>
     <section class="cash">
       <button id="cash" onclick="payment()"> Cash </button>
-       <table>
+      
+      <table>
         <tr id="t"></tr>
         <td>
 	  <select id="tableButt" onchange="selectTable()">
@@ -47,12 +48,13 @@
 	<tr id="receipt">
 	  <div class="strike-through" style="border-bottom : solid 1px red; margin-bottom : -12px;"></div>
 	  <h1 id="t01"> Receipt </h1>
+	  <td id="nummerutskrivning">
+	  </td>
 	  <td id="texten">
-	   
+	  </td>
 	  <td id="cost">
-	    
 	  </td>
-	  </td>
+	</tr>
       </table>
       <section class="theSum">
 	<table>
@@ -60,7 +62,7 @@
 	    <h3 id="summan"> Sum: </h3>
 	  </td>
 	  <tr id="hereInputSum">
-	   
+	    
 	  </tr>
 	  <td id="lotsOfNumbers">
 	  </td>
@@ -81,10 +83,10 @@
       <table>
         <td class="information" id="infoText"></td>
       </table>
-      <section/>
     </section>
-      <section class="numbers">
-        <table>
+    
+    <section class="numbers">
+      <table>
 	<tr id="r1">
 	  <td>
 	    <button class="n" id="1" onclick="numbers(id)"> 1 </button>
@@ -126,17 +128,17 @@
 	    <button class="n" id="0" onclick="numbers(id)"> 0 </button>
 	  </td>
 	  <td>
-	    <button class="n" id="enter" onclick="addNumbers()"> Enter </button>
+	    <button class="n" id="C" onclick="numbers(id)"> Enter </button>
 	  </td>
-</td>
+
 	</tr>
-</table>
-</section>
-<section class="food">
-  <table>
-    <table>
-      <tr id="t1"></tr>
-      <td>
+      </table>
+    </section>
+    <section class="food">
+      <table>
+	<table>
+	  <tr id="t1"></tr>
+	  <td>
 	    <select id="hamburger" onchange="sendToKitchenHamburger()">
 	      <option> Hamburger </option>
 	      <option id="cheeseburger"/>
@@ -201,17 +203,17 @@
 	      <option id="lemoncake"/>
 	    </select>
 	  </td>
-          
-      <td>
-	<div id="ThereseButtons">
-	  <button id="send" onclick="sendtok()"> Send to kitchen   Done </button>
-	</div>
-
-      </td>
+	  
+	  <td>
+	    <div id="ThereseButtons">
+	      <button id="send" onclick="sendtok()"> Send to kitchen   Done </button>
+	    </div>
+	    
+	  </td>
 	</table>
       </table>
     </section>
-
+    
   </body>
 
 </html>

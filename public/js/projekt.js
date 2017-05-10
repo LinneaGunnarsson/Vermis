@@ -66,19 +66,51 @@ function loadItems(item, ID) {
     var itemSection = document.getElementById(ID);
     var name = document.createElement("li");
     name.appendChild(document.createTextNode(item.name));
-  //  name.appendChild(document.createTextNode(item.price));
+    //name.appendChild(document.createTextNode(item.price));
     itemSection.appendChild(name);
 
 }
-
+/*
 function numbers(id) {
     numbercomb = numbercomb + id;
 }
 
 function addNumbers() {
-    numbercomb2 = numbercomb; 
+    var nummerutskrivning = document.getElementById("nummerutskrivning");
+    numbercomb2 = numbercomb;
+    writeTotalNumber(nummerutskrivning);
+    numbercomb = "";
+    }*/
+
+function numbers(id) {
+    numbercomb = numbercomb + id;
+    var nummerutskrivning = document.getElementById("nummerutskrivning");
+    
+    writeTotalNumber(id,nummerutskrivning);
+    numbercomb2 = numbercomb;
     numbercomb = "";
 }
+
+function addNumbers() {
+    var nummerutskrivning = document.getElementById("nummerutskrivning");
+    numbercomb2 = numbercomb;
+    writeTotalNumber(nummerutskrivning);
+    numbercomb = "";
+}
+
+
+function writeTotalNumber(id, place){
+
+    if (numbercomb2 != ""){
+	var lol = numbercomb + numbercomb2;
+	place.replaceChild(document.createTextNode(lol),place.childNodes[0]);
+    }
+    if (id == "C"){
+	place.innerHTML = "";
+    }
+
+}
+
 
 function selectTable(){
     
@@ -119,41 +151,24 @@ function deleteIfNull(listan, maten){
 }
 
 
-/*	if(sumSection.childNode[0] == null){
-	sumSection.appendChild(document.createTextNode(thaPrice));
-	    }
-	else{*/
-
-//	sumSection.appendChild(document.createTextNode(thaPrice));
-
 
 var priset=0;
 var thaPrice = 0;
 var receipt = [];
 //la till id
+
 function sendToReceipt(j, hamm, shortie, version, itemm){
+    var priceSection = document.getElementById("cost");
+    var receiptSection = document.getElementById("texten");
+   // var send = document.getElementById("send");
+    var sumSection = document.getElementById("hereInputSum");
+   /* send.onclick = function() {
+	sendtok(priceSection, receiptSection, sumSection);
+    }
+   */
     if(document.getElementById(version).value==shortie){
-	
-	/*	var receiptSection = document.getElementById("texten");
-		var tableRow = document.createElement("tr");
-		var item = document.createElement("BUTTON");
-		item.style.height = "50px";
-		var numberOne = 0;
-		numberOne = numberOne + 1;
-		var amount = document.createTextNode(numberOne + "x");
-		var toReceipt = document.createTextNode(hamm);
-		item.appendChild(amount);
-		item.appendChild(toReceipt);
-		tableRow.appendChild(item);
-		receiptSection.appendChild(tableRow);
-		var priceSection = document.createElement("cost");
-		var price = document.createElement("ul");
-		price.appendChild(document.createTextNode(itemm.price));
-		priceSection.appendChild(price);
-		priceSection.appendChild(receiptSection);
-		
-	priset = priset + parseInt(itemm.price);*/
-	var receiptSection = document.getElementById("texten");
+	//var priceSection = document.getElementById("cost");
+	//var receiptSection = document.getElementById("texten");
         var tableRow = document.createElement("tr");
         var item = document.createElement("BUTTON");
         item.style.height = "50px";
@@ -165,27 +180,33 @@ function sendToReceipt(j, hamm, shortie, version, itemm){
         item.appendChild(toReceipt);
 	tableRow.appendChild(item);
         receiptSection.appendChild(tableRow);
-
-	var priceSection = document.getElementById("cost");
-	var priceTableRow = document.createElement("tr");
 	receiptSection.appendChild(priceSection);
+	var priceTableRow = document.createElement("tr");
+	
 	var price = document.createElement("ul");
 	price.appendChild(document.createTextNode(itemm.price));
 	priceTableRow.appendChild(price);
 	priceSection.appendChild(priceTableRow);
-	var sumSection = document.getElementById("hereInputSum");
-	
+
+	//var sumSection = document.getElementById("hereInputSum");
 	thaPrice = thaPrice + parseInt(itemm.price);
-//	sumSection.appendChild(document.createTextNode(thaPrice));
 	sumSection.replaceChild(document.createTextNode(thaPrice),sumSection.childNodes[0]);
-	
-	if(j==1) {
+
+	    if(j==1) {
             receipt.push(numberOne);
-            receipt.push(hamm);} 
+            receipt.push(hamm);}
+	
         item.onclick = function(){ 
             var add = document.getElementById("plus");
             var subtract = document.getElementById("minus");
             var info = document.getElementById("info");
+	    info.onclick = function() {
+                var infoSection = document.getElementById("infoText");
+                infoSection.innerHTML="";
+                var info2 = document.createElement("ul");
+                info2.appendChild(document.createTextNode("This item contains "+ (itemm).ingredients + "."));
+                infoSection.appendChild(info2);
+            }
             if(numbercomb2 != ""){
 
 		price.replaceChild(document.createTextNode((itemm.price)*numbercomb2),price.childNodes[0]);
@@ -218,12 +239,13 @@ function sendToReceipt(j, hamm, shortie, version, itemm){
                     replaceIfInList(receipt, hamm, numberOne);
 		    price.replaceChild(document.createTextNode((itemm.price)*numberOne),price.childNodes[0]);
 		    
-		    thaPrice = thaPrice + parseInt(itemm.price);
-		 
-		    sumSection.replaceChild(document.createTextNode(thaPrice),sumSection.childNodes[0]);
+		    
 		    
 		    priset = priset + itemm.price;
-		    sumSection.replaceChild(document.createTextNode(priset),sumSection.childNodes[0]);			
+		    sumSection.replaceChild(document.createTextNode(priset),sumSection.childNodes[0]);
+		    thaPrice = (thaPrice) + parseInt(itemm.price);
+		    
+		    sumSection.replaceChild(document.createTextNode(thaPrice),sumSection.childNodes[0]);
                 }
             }
             subtract.onclick = function(){
@@ -241,13 +263,7 @@ function sendToReceipt(j, hamm, shortie, version, itemm){
                     replaceIfInList(receipt, hamm, numberOne);
 
 		    priset = priset - itemm.price;
-		  /*  priceSection.appendChild(price);
-                    var amount = document.createTextNode(numberOne + "x");
-                    item.appendChild(amount);
-                    item.appendChild(toReceipt);
-                    replaceIfInList(receipt, hamm, numberOne);
-
-		    priset = priset - itemm.price;*/
+		
 		    thaPrice = thaPrice - parseInt(itemm.price);
 		 
 		    sumSection.replaceChild(document.createTextNode(thaPrice),sumSection.childNodes[0]);
@@ -258,13 +274,8 @@ function sendToReceipt(j, hamm, shortie, version, itemm){
                     deleteIfNull(receipt, hamm);
                 }
             }
-            info.onclick = function() {
-                var infoSection = document.getElementById("infoText");
-                infoSection.innerHTML="";
-                var info2 = document.createElement("ul");
-                info2.appendChild(document.createTextNode("This item contains "+ (itemm).ingredients + "."));
-                infoSection.appendChild(info2);
-            }
+         
+	  
         }
     } 
 }
@@ -333,20 +344,11 @@ function sendToKitchenDesserts(){
 
 }
 
-function prisetTotal(){
-    var sumSection = document.getElementById("hereInputSum");
-    var s = document.createTextNode(priset);
-    sumSection.appendChild(s);
-// return sumSection;
-}
-
-function payment(){
- //   var sumSection = prisetTotal();
-   // sumSection.deleteNode[0];
-}//
-
+/*
 function sendtok(){
+  
     document.getElementById("cost").innerHTML="";
+    document.getElementById("hereInputSum").innerHTML="";
     if(receipt != ""){
 	alert(receipt);
 	if (numbercomb2==""){
@@ -360,31 +362,105 @@ function sendtok(){
     else{receipt = [];
 	document.getElementById("texten").innerHTML = "";}
 }
+*/
 
+/*function sendtok(){
+    document.getElementById('cost').innerHTML = "";
+    document.getElementById('hereInputSum').innerHTML = "";
+    if(receipt != ""){
+	alert(receipt);
+	if (numbercomb2==""){
+	    numbercomb2="x";
+	}
+	socket.emit('order', {orderId: "Table:"+numbercomb2, orderItems: receipt});
+	localStorage.setItem('kul',JSON.stringify(receipt));
+	receipt = [];
 
+	document.getElementById("infoText").innerHTML = "";
+       
+	document.getElementById('texten').innerHTML = "";
+//	document.getElementById('texten').innerHTML = "";
+    }
+    else{receipt = [];
+	 document.getElementById("infoText").innerHTML = "";
+	 document.getElementById('texten').innerHTML = "";
+	}
+ //   document.getElementById('t01').innerHTML = "";
+  // document.getElementById('cost').innerHTML = "";
+   // document.getElementById('hereInputSum').innerHTML = "";
+}
+*/
 
+/*var priceSection = document.getElementById("cost");
+    var receiptSection = document.getElementById("texten");
+    var send = document.getElementById("send");
+    var sumSection = document.getElementById("hereInputSum");*/
+
+function lool(som){
+
+    var children = som.childNodes;
+    for(var i = 0; i < children.length; i++){
+	som.removeChild(children[i]);
+    }
+}
+function sendtok(){
+    var priceSection = document.getElementById("cost");
+    var receiptSection = document.getElementById("texten");
+    var sumSection = document.getElementById("hereInputSum")
+   // lool(priceSection);
+    lool(sumSection);
+    lool(receiptSection);
+    if(receipt != ""){
+	alert(receipt);
+	if (numbercomb2==""){
+	    numbercomb2="x";
+	}
+	socket.emit('order', {orderId: "Table:"+numbercomb2, orderItems: receipt});
+	localStorage.setItem('kul',JSON.stringify(receipt));
+	receipt = [];
+//	lool(priceSection);
+//	lool(sumSection);
+//	lool(receiptSection);
+	//	document.getElementById("infoText").innerHTML = "";
+	//lool(priceSection);
+	//lool(sumSection);	
+//	lool(receiptSection);
+	//	document.getElementById('texten').innerHTML = "";
+    }
+    else{receipt = [];
+//	 lool(priceSection);
+//	 lool(sumSection);
+//	 lool(receiptSection);
+	 //lool(priceSection);
+	// lool(sumSection);
+	 //document.getElementById("infoText").innerHTML = "";
+//	 lool(receiptSection);
+	}
+    //   document.getElementById('t01').innerHTML = "";
+    // document.getElementById('cost').innerHTML = "";
+    // document.getElementById('hereInputSum').innerHTML = "";
+}
+
+function payment(){
+ //   var sumSection = prisetTotal();
+   // sumSection.deleteNode[0];
+}
+var tableNum = 1;
 function selectTable(){
- 
-    var tableNum = numbercomb2;
-    while(tableNum === ""){
+    
+    //var tableNum = numbercomb2;
+    while(tableNum == ""){
 	selectTable();
     }
     tableNum = parseFloat(numbercomb2);
-    if(!(t01.innerText.includes("for table:"))){
-	var rece = t01.innerText;
-	t01.innerText = rece + '\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0' + "for table:" + "\u00A0" + tableNum;
+    if(!(document.getElementById('t01').innerHTML.includes("for table:"))){
+	//t01.innerText.includes("for table:"))){
+	var rece = document.getElementById('t01').innerHTML;
+	//	var rece = t01.innerText;
+	document.getElementById('t01').innerHTML = rece + '\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0' + "for table:" + "\u00A0" + tableNum;
+	//t01.innerText = rece + '\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0' + "for table:" + "\u00A0" + tableNum;
     }
     
 }
-
-// <script> prisetTotal()</script>
-/*
-
-	</tr>
-	<td id="texten"></td>
-	<tr id="fo">
-	  <td id="cost"></td>
-	</tr>
-*/
 
 

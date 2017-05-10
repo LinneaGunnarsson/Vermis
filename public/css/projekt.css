@@ -119,29 +119,40 @@ body{
     position:fixed;
     top: 50px;
     left:0;
-    border-bottom: dotted 1px black;
+ 
 }
 #cost{
     position:fixed;
     top: 50px;
     left: 200px;
-    border-bottom: dotted 1px black;
+ 
+}
+
+#nummerutskrivning{
+    position:fixed;
+    top: 30px;
+    left: 200px;
 }
 
 #t01{
     position:fixed;
     top:0;
     left:0;
-    background: white;
+    background: repeating-linear-gradient(
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.2) 50px,
+    rgba(0, 0, 0, 0.3) 50px,
+    rgba(0, 0, 0, 0.3) 100px
+		    );
     width:29%;
     height:100%;
-    border-bottom: dotted 1px black;
+  
 }
 
 #hereInputSum{
     position:fixed;
-    bottom:600px;
-    left:230px;
+    bottom:120px;
+    left:270px;
 }
 
 #summan{
