@@ -119,7 +119,6 @@ function writeTotalNumber(id){
     }
 }
 
-
 function selectFood() {
     if(document.getElementById('hamburger').value=='Cheeseburger'){
         alert("hej");
@@ -413,7 +412,7 @@ function lool(som){
 	if (numbercomb2==""){
 	    numbercomb2="x";
 	}
-	socket.emit('order', {orderId: "Table:"+numbercomb2, orderItems: receipt});
+	socket.emit('order', {orderId: "Table:"+tableNumm, orderItems: receipt});
 	localStorage.setItem('kul',JSON.stringify(receipt));
 	receipt = [];
 //	lool(priceSection);
@@ -444,7 +443,8 @@ function payment(){
    // sumSection.deleteNode[0];
 }
 var tableNum = 1;
-/*
+
+var tableNumm = 0;
 function selectTable(){
     
     //var tableNum = numbercomb2;
@@ -456,10 +456,10 @@ function selectTable(){
 	//t01.innerText.includes("for table:"))){
 	var rece = document.getElementById('t01').innerHTML;
 	//	var rece = t01.innerText;
-	document.getElementById('t01').innerHTML = rece + '\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0' + "for table:" + "\u00A0" + tableNum;
+        tableNumm = document.getElementById('tableButt').value;
+	document.getElementById('t01').innerHTML = rece + '\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0' + "for table:" + "\u00A0" + tableNumm;
 	//t01.innerText = rece + '\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0' + "for table:" + "\u00A0" + tableNum;
     }
     
 }
-*/
 

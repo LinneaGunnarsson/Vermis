@@ -117,13 +117,13 @@ body{
 
 #texten{
     position:fixed;
-    top: 50px;
+    top: 67px;
     left:0;
  
 }
 #cost{
     position:fixed;
-    top: 50px;
+    top: 67px;
     left: 200px;
  
 }
@@ -151,13 +151,13 @@ body{
 
 #hereInputSum{
     position:fixed;
-    bottom:120px;
+    bottom:90px;
     left:270px;
 }
 
 #summan{
     position:fixed;
-    bottom:100px;
+    bottom:70px;
     left:200px;
 }
 
