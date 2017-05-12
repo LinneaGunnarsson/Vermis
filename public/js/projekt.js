@@ -16,6 +16,7 @@ function loadVue() {
 }
 
 
+
 function indexPageLoaded() {
     
   
@@ -280,7 +281,7 @@ function sendToKitchenHamburger(){
     sendToReceipt(1,"Cheese and bacon", 'Cheese and bacon','hamburger',hamburger[1]);
     sendToReceipt(1,"Chevre and honey", 'Chevre and honey','hamburger',hamburger[2]);
     sendToReceipt(1,"Veggie",'Veggie','hamburger',hamburger[3]);
-    document.getElementById('hamburger').value = 'Hamburger';
+    document.getElementById('hamburger').value = 'Burgers';
     
   
 } 
@@ -342,21 +343,24 @@ function sendtok(){
     document.getElementById("cost").innerHTML="";
     document.getElementById("hereInputSum").innerHTML="";
     var infoSection = document.getElementById("infoText");
+    tableNum = "";
     infoSection.innerHTML="";
     if(receipt != ""){
 	alert(receipt);
 	if (numbercomb2==""){
 	    numbercomb2="x";
 	}
-	socket.emit('order', {orderId: "Table:"+numbercomb2, orderItems: receipt});
+	socket.emit('order', {orderId: "Table:"+tableNumm, orderItems: receipt});
 	localStorage.setItem('kul',JSON.stringify(receipt));
 	receipt = [];
 	document.getElementById("texten").innerHTML = "";
+        document.getElementById("tableButt").value = 'Table';
     }
     else{
 	receipt = [];
 	document.getElementById("texten").innerHTML = "";
-	
+        document.getElementById('t01').innerHTML = rece;
+        document.getElementById("tableButt").value = 'Table';
     }
 }
 
@@ -446,20 +450,10 @@ var tableNum = 1;
 
 var tableNumm = 0;
 function selectTable(){
-    
-    //var tableNum = numbercomb2;
-    while(tableNum == ""){
-	selectTable();
-    }
-    tableNum = parseFloat(numbercomb2);
-    if(!(document.getElementById('t01').innerHTML.includes("for table:"))){
-	//t01.innerText.includes("for table:"))){
-	var rece = document.getElementById('t01').innerHTML;
-	//	var rece = t01.innerText;
-        tableNumm = document.getElementById('tableButt').value;
-	document.getElementById('t01').innerHTML = rece + '\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0' + "for table:" + "\u00A0" + tableNumm;
-	//t01.innerText = rece + '\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0' + "for table:" + "\u00A0" + tableNum;
-    }
-    
+    tableNumm = document.getElementById('tableButt').value;
+    var rece = document.getElementById('t01').innerHTML;
+    var tabbe = "for table:" + "\u00A0" + tableNumm;
+    document.getElementById('t01').innerHTML = "Receipt";
+    document.getElementById('t01').innerHTML = "Receipt" + "\u00A0" + tabbe;
 }
 
