@@ -91,24 +91,32 @@ function numbers(id) {
     numbercomb = "";
 }
 
+
+
 function addNumbers() {
     var nummerutskrivning = document.getElementById("nummerutskrivning");
-    numbercomb2 = numbercomb;
+    numbercomb2 = numercomb2 + numbercomb;
     writeTotalNumber(nummerutskrivning);
     numbercomb = "";
 }
 
 
-function writeTotalNumber(id, place){
 
-    if (numbercomb2 != ""){
-	var lol = numbercomb + numbercomb2;
-	place.replaceChild(document.createTextNode(lol),place.childNodes[0]);
+var i = 0;
+function writeTotalNumber(id){
+    var place = document.getElementById("nummerutskrivning");
+    if (id != "C"){
+//	var lol = numbercomb + numbercomb2;
+	place.appendChild(document.createTextNode(id),place.childNodes[i]);
+	numbercomb2 = numbercomb2 + id;
+	i = i + 1;
     }
     if (id == "C"){
 	place.innerHTML = "";
+	i = 0;
+	numbercomb2 = "";
+	
     }
-
 }
 
 function selectFood() {
@@ -150,20 +158,13 @@ function deleteIfNull(listan, maten){
 var priset=0;
 var thaPrice = 0;
 var receipt = [];
-//la till id
 
 function sendToReceipt(j, hamm, shortie, version, itemm){
-    var priceSection = document.getElementById("cost");
-    var receiptSection = document.getElementById("texten");
-   // var send = document.getElementById("send");
-    var sumSection = document.getElementById("hereInputSum");
-   /* send.onclick = function() {
-	sendtok(priceSection, receiptSection, sumSection);
-    }
-   */
     if(document.getElementById(version).value==shortie){
-	//var priceSection = document.getElementById("cost");
-	//var receiptSection = document.getElementById("texten");
+	var priceSection = document.getElementById("cost");
+	var receiptSection = document.getElementById("texten");
+	
+	var sumSection = document.getElementById("hereInputSum");
         var tableRow = document.createElement("tr");
         var item = document.createElement("BUTTON");
         item.style.height = "50px";
@@ -183,11 +184,13 @@ function sendToReceipt(j, hamm, shortie, version, itemm){
 	priceTableRow.appendChild(price);
 	priceSection.appendChild(priceTableRow);
 
-	//var sumSection = document.getElementById("hereInputSum");
+	priset = priset + parseInt(itemm.price);
+	
+	var sumSection = document.getElementById("hereInputSum");
 	thaPrice = thaPrice + parseInt(itemm.price);
 	sumSection.replaceChild(document.createTextNode(thaPrice),sumSection.childNodes[0]);
 
-	    if(j==1) {
+	if(j==1) {
             receipt.push(numberOne);
             receipt.push(hamm);}
 	
@@ -203,13 +206,15 @@ function sendToReceipt(j, hamm, shortie, version, itemm){
                 infoSection.appendChild(info2);
             }
             if(numbercomb2 != ""){
-
+		i = 0;
+		var place = document.getElementById("nummerutskrivning");
+		place.innerHTML = "";
 		price.replaceChild(document.createTextNode((itemm.price)*numbercomb2),price.childNodes[0]);
 
 		priceToChange = itemm.price*numbercomb2;
 		
 		thaPrice = thaPrice + parseInt(itemm.price*(numbercomb2-1));
-		//	sumSection.appendChild(document.createTextNode(thaPrice));
+		
 		sumSection.replaceChild(document.createTextNode(thaPrice),sumSection.childNodes[0]);
 
                 item.removeChild(item.childNodes[0]);
@@ -233,9 +238,6 @@ function sendToReceipt(j, hamm, shortie, version, itemm){
                     item.appendChild(toReceipt);
                     replaceIfInList(receipt, hamm, numberOne);
 		    price.replaceChild(document.createTextNode((itemm.price)*numberOne),price.childNodes[0]);
-		    
-		    
-		    
 		    priset = priset + itemm.price;
 		    sumSection.replaceChild(document.createTextNode(priset),sumSection.childNodes[0]);
 		    thaPrice = (thaPrice) + parseInt(itemm.price);
@@ -245,22 +247,20 @@ function sendToReceipt(j, hamm, shortie, version, itemm){
             }
             subtract.onclick = function(){
                 if(numberOne >= 1){
-		    
-		    
                     item.removeChild(item.childNodes[0]);
                     numberOne = numberOne - 1;
-		   // price.removeChild(price.childNodes[0]);
+		    
 		    price.replaceChild(document.createTextNode((itemm.price)*numberOne),price.childNodes[0]);
-		   
+		    
                     var amount = document.createTextNode(numberOne + "x");
                     item.appendChild(amount);
                     item.appendChild(toReceipt);
                     replaceIfInList(receipt, hamm, numberOne);
 
 		    priset = priset - itemm.price;
-		
+		    
 		    thaPrice = thaPrice - parseInt(itemm.price);
-		 
+		    
 		    sumSection.replaceChild(document.createTextNode(thaPrice),sumSection.childNodes[0]);
                 }
                 if(numberOne == 0){
@@ -268,9 +268,7 @@ function sendToReceipt(j, hamm, shortie, version, itemm){
                     item.parentNode.removeChild(item);
                     deleteIfNull(receipt, hamm);
                 }
-            }
-         
-	  
+            } 
         }
     } 
 }
@@ -339,11 +337,12 @@ function sendToKitchenDesserts(){
 
 }
 
-/*
+
 function sendtok(){
-  
     document.getElementById("cost").innerHTML="";
     document.getElementById("hereInputSum").innerHTML="";
+    var infoSection = document.getElementById("infoText");
+    infoSection.innerHTML="";
     if(receipt != ""){
 	alert(receipt);
 	if (numbercomb2==""){
@@ -354,14 +353,17 @@ function sendtok(){
 	receipt = [];
 	document.getElementById("texten").innerHTML = "";
     }
-    else{receipt = [];
-	document.getElementById("texten").innerHTML = "";}
+    else{
+	receipt = [];
+	document.getElementById("texten").innerHTML = "";
+	
+    }
 }
-*/
 
-/*function sendtok(){
-    document.getElementById('cost').innerHTML = "";
-    document.getElementById('hereInputSum').innerHTML = "";
+/*
+function sendtok(cost,texten,hereInputSum){
+    cost.innerHTML = "";
+    hereInputSum.innerHTML = "";
     if(receipt != ""){
 	alert(receipt);
 	if (numbercomb2==""){
@@ -373,38 +375,38 @@ function sendtok(){
 
 	document.getElementById("infoText").innerHTML = "";
        
-	document.getElementById('texten').innerHTML = "";
+	texten.innerHTML = "";
 //	document.getElementById('texten').innerHTML = "";
     }
     else{receipt = [];
 	 document.getElementById("infoText").innerHTML = "";
-	 document.getElementById('texten').innerHTML = "";
+	 texten.innerHTML = "";
 	}
  //   document.getElementById('t01').innerHTML = "";
   // document.getElementById('cost').innerHTML = "";
    // document.getElementById('hereInputSum').innerHTML = "";
 }
-*/
+
 
 /*var priceSection = document.getElementById("cost");
     var receiptSection = document.getElementById("texten");
     var send = document.getElementById("send");
     var sumSection = document.getElementById("hereInputSum");*/
-
+/*
 function lool(som){
 
     var children = som.childNodes;
-    for(var i = 0; i < children.length; i++){
+    for(var i = 0; i < children.length+1; i++){
 	som.removeChild(children[i]);
     }
-}
-function sendtok(){
-    var priceSection = document.getElementById("cost");
-    var receiptSection = document.getElementById("texten");
-    var sumSection = document.getElementById("hereInputSum")
-   // lool(priceSection);
-    lool(sumSection);
-    lool(receiptSection);
+}*/
+/*function sendtok(cost,texten,hereInputSum){
+    //var priceSection = document.getElementById("cost");
+    //var receiptSection = document.getElementById("texten");
+    //var sumSection = document.getElementById("hereInputSum")
+    lool(cost);
+    lool(texten);
+    lool(hereInputSum);
     if(receipt != ""){
 	alert(receipt);
 	if (numbercomb2==""){
@@ -434,13 +436,14 @@ function sendtok(){
     //   document.getElementById('t01').innerHTML = "";
     // document.getElementById('cost').innerHTML = "";
     // document.getElementById('hereInputSum').innerHTML = "";
-}
+}*/
 
 function payment(){
  //   var sumSection = prisetTotal();
    // sumSection.deleteNode[0];
 }
 var tableNum = 1;
+
 var tableNumm = 0;
 function selectTable(){
     
@@ -459,5 +462,4 @@ function selectTable(){
     }
     
 }
-
 
