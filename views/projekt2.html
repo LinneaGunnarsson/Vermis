@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/projekt.css">
+    <script src="js/projekt.json"></script>
+    <script src="js/projekt.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="/vue/vue.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/nationPub.js"></script>
+    <script src="js/diner.js"></script>
+    <script>
+      docLoaded(indexPageLoaded);
+    </script>
+    <section id= "head">
+      <title>Värmlandskällaren</title>
+    </section>
+  </head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+  
+  
+  <body>
+    <section class="card">
+      <button id="card" onclick="payment"> Card </button>
+    </section>
+    <section class="cash">
+      <button id="cash" onclick="payment()"> Cash </button>
+      
+      <table>
+        <tr id="t"></tr>
+        <td>
+	  <select id="tableButt" onchange="selectTable()">
+	    <option> Table </option>
+	    <option id="table1"> 1 </option>
+	    <option id="table2"> 2 </option>
+            <option id="table3"> 3 </option>
+            <option id="table4"> 4 </option>
+            <option id="table5"> 5 </option>
+            <option id="table6"> 6 </option>
+	  </select>
+        </td>
+      </table>
+    </section>
+
+    <section class="bill">
+      <table>
+	<tr id="receipt">
+	  <div class="strike-through" style="border-bottom : solid 1px red; margin-bottom : -12px;"></div>
+	  <h1 id="t01"> Receipt </h1>
+	  <td id="nummerutskrivning">
+	  </td>
+	  <td id="texten">
+	  </td>
+	  <td id="cost">
+	  
+	  </td>
+	</tr>
+      </table>
+      <section class="theSum">
+	<table>
+	  <td>
+	    <h3 id="summan"> Sum: </h3>
+	  </td>
+	  <tr id="hereInputSum">
+	    
+	  </tr>
+	  <td id="lotsOfNumbers">
+	  </td>
+	</table>
+      </section>
+    </section>
+    <section class="addandsub">
+      <table>
+        <td>
+          <button class="addsub" id="plus"> + </button>
+	</td>
+        <td>
+	  <button class="addsub" id="minus"> - </button>
+	</td>
+      </table>
+    </section>
+    <section class="information">
+      <table>
+        <td class="information" id="infoText"></td>
+      </table>
+    </section>
+    
+    <section class="numbers">
+      <table>
+	<tr id="r1">
+	  <td>
+	    <button class="n" id="1" onclick="writeTotalNumber(id)"> 1 </button>
+	  </td>
+	  <td>
+	    <button class="n" id="2" onclick="writeTotalNumber(id)"> 2 </button>
+	  </td>
+	  <td>
+	    <button class="n" id="3" onclick="writeTotalNumber(id)"> 3 </button>
+	  </td>
+	</tr>
+	<tr id="r2">
+	  <td>
+	    <button class="n" id="4" onclick="writeTotalNumber(id)"> 4 </button>
+	  </td>
+	  <td>
+	    <button class="n" id="5" onclick="writeTotalNumber(id)"> 5 </button>
+	  </td>
+	  <td>
+	    <button class="n" id="6" onclick="writeTotalNumber(id)"> 6 </button>
+	  </td>
+	</tr>
+	<tr id="r3">
+	  <td>
+	    <button class="n" id="7" onclick="writeTotalNumber(id)"> 7 </button>
+	  </td>
+	  <td>
+	    <button class="n" id="8" onclick="writeTotalNumber(id)"> 8 </button>
+	  </td>
+	  <td>
+	    <button class="n" id="9" onclick="writeTotalNumber(id)"> 9 </button>
+	  </td>
+	</tr>
+	<tr id="r4">
+	  <td>
+            <button class="info" id="info"> i </button>
+          </td>
+	  <td>
+	    <button class="n" id="0" onclick="writeTotalNumber(id)"> 0 </button>
+	  </td>
+	  <td>
+	    <button class="n" id="C" onclick="writeTotalNumber(id)"> C </button>
+	  </td>
+
+	</tr>
+      </table>
+    </section>
+    <section class="food">
+      <table>
+	<table>
+	  <tr id="t1"></tr>
+	  <td>
+	    <select id="hamburger" onchange="sendToKitchenHamburger()">
+	      <option> Hamburger </option>
+	      <option id="cheeseburger"/>
+	      <option id="cheese-bacon"/>
+	      <option id="chevre-honey"/>
+	      <option id="veggie"/>
+	    </select>
+	  </td>
+	  <td>
+	    <select id="beercider" onchange="sendToKitchenBeerCider()">
+	      <option> Beer/cider </option>
+	      <option id="carlsberg"/>
+	      <option id="heineken"/>
+	      <option id="pear-cider"/>
+	      <option id="apple-cider"/>
+	    </select>
+	  </td>
+	  <tr id="t2"> </tr>
+	  <td>
+	    <select id="salad" onchange="sendToKitchenSalad()">
+	      <option> Salad </option>
+	      <option id="cesar"/>
+	      <option id="meatball"/> 
+	      <option id="egg"/> 
+	    </select>
+	    
+	  </td>
+	  <td>
+	    <select id="wine" onchange="sendToKitchenWine()">
+	      <option> Wine </option>
+	      <option id="white"/>
+	      <option id="rose"/>
+	      <option id="red"/>
+	    </select>
+	  </td>
+	  <tr id="t3"> </tr>
+	  <td>
+	    <select id="sideDish" onchange="sendToKitchenSideDish()">
+	      <option> Side dishes </option>
+	      <option id="tacos"/>
+	      <option id="fries"/>
+	      <option id="nachos"/>
+	      <option id="mozzarella-sticks"/>
+	    </select>
+	  </td>
+	  <td>
+	    <select id="softDrinks" onchange="sendToKitchenSoftDrinks()">
+	      <option> Soft drinks </option>
+	      <option id="coca-cola"/>
+	      <option id="fanta"/>
+	      <option id="sprite"/>
+	      <option id="sparkling-water"/>
+	      
+	    </select>
+	  </td>
+	  <tr id="t4"> </tr>
+	  <td>
+	    <select id="desserts" onchange="sendToKitchenDesserts()">
+	      <option> Desserts </option>
+	      <option id="semla"/>
+	      <option id="mudcake"/>
+	      <option id="lemoncake"/>
+	    </select>
+	  </td>
+	  
+	  <td>
+	    <div id="ThereseButtons">
+	      <button id="send" onclick="sendtok()"> Send to kitchen   Done </button>
+	    </div>
+	    
+	  </td>
+	</table>
+      </table>
+    </section>
+  </body>
+</html>

@@ -3,26 +3,28 @@
 @import url("https://googleapis.com/css?family=Droid+Sherif|Share+Tech+Mono");
 */
 
-button {
-    height: 50px;
-}
-
 .addandsub{
+    position:fixed;
+    left: 392px;
+    top: 80px;
 }
 
 .addsub{
-   // top: 20%;
     width:85px;
     height:85px;
     font-size:200%;
     background-color:#ffff66;
+    top:0;
 }
 
 .information{
-    
+    postition:fixed;
+    bottom:0;
+    left:0;
 }
 
 #infoText{
+    position:fixed;
     background: lightgray;
     width:29%;
     height:10%;
@@ -45,9 +47,15 @@ button {
 }
 
 .numbers{
+    position:fixed;
+    left: 393px;
+    top: 180px;
 }
 
 #info{
+    position:fixed;
+    bottom:164px;
+    left:396px;
     width:85px;
     height:85px;
     font-size:200%;
@@ -56,7 +64,12 @@ button {
 }
 
 #card{
-    font-size:250%;
+    position:fixed;
+    bottom:80px;
+    left:396px;
+    width:264px;
+    height:70px;
+    font-size:200%;
     background-color: #ffb3ff;
     color:#660033;
 }
@@ -66,44 +79,31 @@ button {
 }
 
 #cash{
-    font-size:250%;
+    position:fixed;
+    bottom:0;
+    left:396px;
+    width:264px;
+    height:70px;
+    font-size:200%;
     background-color: #dd99ff;
     color:#660033;
 }
 
-#receipt tr:nth-child(odd) {
-    background: #999;
 
-}
 .n{
     width:85px;
     height:85px;
     font-size:200%;
     background-color:#99ddff;
+    top:0;
 }
 
-.column1 {
-    display: inline-block;
-    width: 20%;
-    vertical-align: top;
-}
-.column2{
-    display: inline-block;
-    width: 20%;
-    vertical-align: top;
-}
 
-.column3{
-    display: inline-block;
-    width: 59%;
-    right: 0%
-    vertical-align: top;
-  
-}
-.bill {
-}
 
 .food{
+    position: fixed;
+    bottom: 0;
+    right: 0;
 }
 
 a, strong, em{
@@ -115,14 +115,50 @@ body{
     font-family: Ariel, sans-serif;
 }
 
+#texten{
+    position:fixed;
+    top: 50px;
+    left:0;
+ 
+}
+#cost{
+    position:fixed;
+    top: 50px;
+    left: 200px;
+ 
+}
 
 #nummerutskrivning{
+    position:fixed;
+    top: 30px;
+    left: 200px;
+}
+
+#t01{
+    position:fixed;
+    top:0;
+    left:0;
+    background: repeating-linear-gradient(
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.2) 50px,
+    rgba(0, 0, 0, 0.3) 50px,
+    rgba(0, 0, 0, 0.3) 100px
+		    );
+    width:29%;
+    height:100%;
+  
 }
 
 #hereInputSum{
+    position:fixed;
+    bottom:120px;
+    left:270px;
 }
 
 #summan{
+    position:fixed;
+    bottom:100px;
+    left:200px;
 }
 
 #hamburger{
@@ -173,7 +209,11 @@ body{
 }
 
 #tableButt{
-    top: 0%;
+    position:fixed;
+    left: 393px;
+    top:17px;
+    width:264px;
+    height:50px;
     font-size:200%;
     background-color: #3399ff;
     color:#660033;
