@@ -115,14 +115,41 @@ body{
     font-family: Ariel, sans-serif;
 }
 
+<<<<<<< HEAD
+=======
+#texten{
+    position:fixed;
+    top: 67px;
+    left:0;
+ 
+}
+#cost{
+    position:fixed;
+    top: 67px;
+    left: 200px;
+ 
+}
+>>>>>>> 8aea9e43a09510a06c405f16f0a51171921c6e2c
 
 #nummerutskrivning{
 }
 
 #hereInputSum{
+<<<<<<< HEAD
 }
 
 #summan{
+=======
+    position:fixed;
+    bottom:90px;
+    left:270px;
+}
+
+#summan{
+    position:fixed;
+    bottom:70px;
+    left:200px;
+>>>>>>> 8aea9e43a09510a06c405f16f0a51171921c6e2c
 }
 
 #hamburger{

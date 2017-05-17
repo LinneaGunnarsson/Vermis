@@ -19,6 +19,7 @@
   
   
   <body>
+<<<<<<< HEAD
     <div class="column1">
       <section class="bill">
 	<h1> Receipt </h1>
@@ -27,6 +28,54 @@
 	    <td id="nummerutskrivning"></td>
 	    <td class="information" id="infoText"></td>
 	  </tr> 
+=======
+    <section class="card">
+      <button id="card" onclick="payment"> Card </button>
+    </section>
+    <section class="cash">
+      <button id="cash" onclick="payment()"> Cash </button>
+      
+      <table>
+        <tr id="t"></tr>
+        <td>
+	  <select id="tableButt" onchange="selectTable()">
+	    <option> Table </option>
+	    <option id="table1"> 1 </option>
+	    <option id="table2"> 2 </option>
+            <option id="table3"> 3 </option>
+            <option id="table4"> 4 </option>
+            <option id="table5"> 5 </option>
+            <option id="table6"> 6 </option>
+	  </select>
+        </td>
+      </table>
+    </section>
+
+    <section class="bill">
+      <table>
+	<tr id="receipt">
+	  <!--<div class="strike-through" style="border-bottom : solid 1px red; margin-bottom : -12px;"></div>-->
+	  <h1 id="t01"> Receipt </h1>
+	  <td id="nummerutskrivning">
+	  </td>
+	  <td id="texten">
+	  </td>
+	  <td id="cost">
+	  
+	  </td>
+	</tr>
+      </table>
+      <section class="theSum">
+	<table>
+	  <td>
+	    <h3 id="summan"> Sum: </h3>
+	  </td>
+	  <tr id="hereInputSum">
+	    
+	  </tr>
+	  <td id="lotsOfNumbers">
+	  </td>
+>>>>>>> 8aea9e43a09510a06c405f16f0a51171921c6e2c
 	</table>
 	<section class="theSum">
 	  <h3> Sum: <span id="hereInputSum"></span></h3>
@@ -119,6 +168,7 @@
     <div class="column3">
       <section class="food">
 	<table>
+<<<<<<< HEAD
 	  <table>
 	    <tr id="t1"></tr>
 	    <td>
@@ -135,6 +185,23 @@
 		<option value="0"> Beer/cider </option>
 		<option id="carlsberg"/>
 		<option id="heineken"/>
+=======
+	  <tr id="t1"></tr>
+	  <td>
+	    <select id="hamburger" onchange="sendToKitchenHamburger()">
+	      <option> Burgers </option>
+	      <option id="cheeseburger"/>
+	      <option id="cheese-bacon"/>
+	      <option id="chevre-honey"/>
+	      <option id="veggie"/>
+	    </select>
+	  </td>
+	  <td>
+	    <select id="beercider" onchange="sendToKitchenBeerCider()">
+	      <option> Beer/cider </option>
+	      <option id="carlsberg"/>
+	      <option id="heineken"/>
+>>>>>>> 8aea9e43a09510a06c405f16f0a51171921c6e2c
 	      <option id="pear-cider"/>
 		<option id="apple-cider"/>
 	      </select>

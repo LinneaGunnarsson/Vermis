@@ -18,6 +18,7 @@ function loadVue() {
 }
 
 
+
 function indexPageLoaded() {
 
 
@@ -271,6 +272,7 @@ function addToOrder(categoryId, kitchen = 0){
 		
             }
         }
+<<<<<<< HEAD
         subtract.onclick = function(){
             if(numberOne >= 1){
                 
@@ -284,6 +286,20 @@ function addToOrder(categoryId, kitchen = 0){
 		thaPrice = thaPrice - ALL_ITEMS[hamm].price;
 		sumSection.innerHTML = "";
 		sumSection.innerHTML = thaPrice;
+=======
+    } 
+}
+
+
+  
+function sendToKitchenHamburger(){
+    sendToReceipt(1,"Cheeseburger", 'Cheeseburger', 'hamburger',hamburger[0]);
+    sendToReceipt(1,"Cheese and bacon", 'Cheese and bacon','hamburger',hamburger[1]);
+    sendToReceipt(1,"Chevre and honey", 'Chevre and honey','hamburger',hamburger[2]);
+    sendToReceipt(1,"Veggie",'Veggie','hamburger',hamburger[3]);
+    document.getElementById('hamburger').value = 'Burgers';
+    
+>>>>>>> 8aea9e43a09510a06c405f16f0a51171921c6e2c
   
 		price.innerHTML = "";
 	
@@ -377,8 +393,10 @@ function addToOrder(categoryId, kitchen = 0){
 
 function sendtok(){
     var infoSection = document.getElementById("infoText");
+    tableNum = "";
     infoSection.innerHTML="";
     if(receipt != ""){
+<<<<<<< HEAD
        alert(receipt);
        if (numbercomb2==""){
            numbercomb2="x";
@@ -395,6 +413,23 @@ function sendtok(){
    var receiptItems = document.getElementById("receipt");
    while (receiptItems.firstChild) {
     receiptItems.removeChild(receiptItems.firstChild);
+=======
+	alert(receipt);
+	if (numbercomb2==""){
+	    numbercomb2="x";
+	}
+	socket.emit('order', {orderId: "Table:"+tableNumm, orderItems: receipt});
+	localStorage.setItem('kul',JSON.stringify(receipt));
+	receipt = [];
+	document.getElementById("texten").innerHTML = "";
+        document.getElementById("tableButt").value = 'Table';
+    }
+    else{
+	receipt = [];
+	document.getElementById("texten").innerHTML = "";
+        document.getElementById('t01').innerHTML = rece;
+        document.getElementById("tableButt").value = 'Table';
+>>>>>>> 8aea9e43a09510a06c405f16f0a51171921c6e2c
     }
 }
 
@@ -484,6 +519,7 @@ var tableNum = 1;
 
 var tableNumm = 0;
 function selectTable(){
+<<<<<<< HEAD
 
     //var tableNum = numbercomb2;
     while(tableNum == ""){
@@ -500,4 +536,12 @@ function selectTable(){
 }
 
 }
+=======
+    tableNumm = document.getElementById('tableButt').value;
+    var rece = document.getElementById('t01').innerHTML;
+    var tabbe = "for table:" + "\u00A0" + tableNumm;
+    document.getElementById('t01').innerHTML = "Receipt";
+    document.getElementById('t01').innerHTML = "Receipt" + "\u00A0" + tabbe;
+}
+>>>>>>> 8aea9e43a09510a06c405f16f0a51171921c6e2c
 
