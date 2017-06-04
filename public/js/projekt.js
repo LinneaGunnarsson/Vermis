@@ -385,12 +385,15 @@ function sendtok(){
        if (numbercomb2==""){
            numbercomb2="x";
        }
-       socket.emit('order', {orderId: "Table:"+numbercomb2, orderItems: receipt});
+       socket.emit('order', {orderId: "Table:"+tableNumm, orderItems: receipt});
        localStorage.setItem('kul',JSON.stringify(receipt));
-       receipt = [];
+        receipt = [];
+        document.getElementById("tableButt").value = 'Table';
    }
    else{
        receipt = [];
+       document.getElementById('t01').innerHTML = rece;
+       document.getElementById("tableButt").value = 'Table';
    }
    thaPrice = 0;
    document.getElementById("hereInputSum").innerHTML="";
@@ -482,10 +485,17 @@ function payment(){
  //   var sumSection = prisetTotal();
    // sumSection.deleteNode[0];
 }
-var tableNum = 1;
+//var tableNum = 1;
 
 var tableNumm = 0;
 function selectTable(){
+    tableNumm = document.getElementById('tableButt').value;
+    var rece = document.getElementById('t01').innerHTML;
+    var tabbe = "for table:" + "\u00A0" + tableNumm;
+    document.getElementById('t01').innerHTML = "Receipt";
+    document.getElementById('t01').innerHTML = "Receipt" + "\u00A0" + tabbe;
+
+    /*
 
     //var tableNum = numbercomb2;
     while(tableNum == ""){
@@ -500,6 +510,7 @@ function selectTable(){
     document.getElementById('t01').innerHTML = rece + '\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0' + "for table:" + "\u00A0" + tableNumm;
 	//t01.innerText = rece + '\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0' + "for table:" + "\u00A0" + tableNum;
 }
+*/
 
 }
 
